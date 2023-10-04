@@ -1,0 +1,145 @@
+<div class="fixed drop-shadow-lg top-0 z-50 right-0 left-0 my-primary">
+
+    <div class="relative px-5 lg:px-20 h-20 flex items-center justify-between">
+        
+        <div class="logo-bearer flex items-center">
+            <div class="mr-5">
+                <img class="w-8" src="" alt="GemStore">
+            </div>
+
+            <div class="left-nav hidden md:block">
+                <div class="flex items-center space-x-4">
+                    <a routerLink="/" class="text-grey-800 font-semibold text-lg">
+                        Shop Now
+                    </a>
+                    <div>
+                        <button class="open-button font-bold" (click)="openMenu('men')" mat-button>Men</button>
+                    </div>
+                    <div>
+                        <button class="open-button font-bold" (click)="openMenu('women')" mat-button>Women</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-nav hidden items-center md:flex">
+
+            <button class="px-5" (click)="navigateTo('cart')" mat-icon-button>
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+
+            <button *ngIf="loggedIn" mat-stroked-button type="" class="flat-secondary-button">LOGIN</button>
+
+            <div *ngIf="loggedIn" class="relative ml-3 flex items-center">
+                <div class="flex items-center space-x-5">
+
+                    <span class="font-bold text-lg">Ashoke</span>
+                    <button mat-stroked-button [matMenuTriggerFor]="profileMenu">
+                        <img class="h-5 w-5" src="assets/avatar/avatar1.webp" alt="User">
+                    </button>
+                    <mat-menu #profileMenu="matMenu">
+                        <a routerLink="account/orders"><button mat-menu-item>Order</button></a>
+                        <a routerLink="/"><button mat-menu-item>Profile</button></a>
+                        <a routerLink="admin"><button mat-menu-item>Admin</button></a>
+                        <a routerLink="/"><button mat-menu-item>Logout</button></a>
+                    </mat-menu>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mobile-nav md:hidden cursor-pointer">
+            <mat-icon (click)="toggleMobileMenu()">menu</mat-icon>
+        </div>
+        <div *ngIf="isMobilemenu" class="absolute md:hidden top-16 z-50 left-0 right-0 w-full drop-menu my-primary">
+            <mat-selection-list role="list">
+                <mat-list-item role="listitem">Item 1</mat-list-item>
+                <mat-list-item role="listitem">Item 2</mat-list-item>
+                <mat-list-item role="listitem">Item 3</mat-list-item>
+            </mat-selection-list>                  
+        </div>
+
+    </div>
+
+    
+    <div *ngIf="isNavMenuOpen" class="absolute right-0 left-0 modal-container">
+        <app-nav-menu [selectedSection]="currentSection" />
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-800">
+
+    <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
+        <div class="flex items-center">
+            <div class="mr-5">
+                <img class="w-8" src="" alt="GemStore">
+            </div>
+
+            <div class="">
+                <div class="flex items-center space-x-4">
+                    <a routerLink="/" class="text-grey-800 font-semibold text-lg">
+                        Shop Now
+                    </a>
+                    <div>
+                        <button class="open-button" (click)="openMenu('men')" mat-button>Men</button>
+                    </div>
+                    <div>
+                        <button class="open-button" (click)="openMenu('women')" mat-button>Women</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+
+            <button class="px-5" (click)="navigateTo('cart')" mat-icon-button>
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+
+            <button *ngIf="loggedIn" mat-raised-button type="" color="accent">LOGIN</button>
+
+            <div *ngIf="loggedIn" class="relative ml-3 flex items-center">
+                <div class="flex items-center space-x-5">
+
+                    <span class="font-bold text-lg">Ashoke</span>
+                    <button mat-button [matMenuTriggerFor]="profileMenu">
+                        <img class="h-5 w-5" src="assets/avatar/avatar1.webp" alt="User">
+                    </button>
+                    <mat-menu #profileMenu="matMenu">
+                        <button mat-menu-item>Order</button>
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item>Logout</button>
+                    </mat-menu>
+
+                </div>
+            </div>
+
+        </div>
+              
+    </div>
+
+    
+    <div *ngIf="isNavMenuOpen" class="absolute right-0 left-0 modal-container">
+        <app-nav-menu [selectedSection]="currentSection" />
+    </div>
+
+</div> -->
+

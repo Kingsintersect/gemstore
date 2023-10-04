@@ -1,0 +1,26 @@
+<!-- <p class="py-10">admin works!</p> -->
+
+<div class="flex my-tetiary p-6">
+
+    <div id="menu" class="h-screen flex-none w-72 hidden md:block">
+        <div class="h-full rounded-2xl bg-white p-6 pr-0 mr-5">
+            <h2 class="mb-9"><mat-icon>home</mat-icon> GEMSTORE</h2>
+            <mat-divider></mat-divider>
+            <ul class="my-3">
+                <li class="menu-link " *ngFor="let menu of menuList">
+                    <a href="#" class="flex items-center justify-around w-full px-3 py-1 my-2 cursor-pointer">
+                        <div class="flex-none w-10">
+                            <mat-icon>{{menu.icon}}</mat-icon> 
+                        </div>                        
+                        <div class="grow">{{menu.name}}</div>
+                    </a>                        
+                </li>
+            </ul>   
+        </div>               
+    </div>
+
+    <div class="grow">
+        <router-outlet />
+    </div>
+
+</div>

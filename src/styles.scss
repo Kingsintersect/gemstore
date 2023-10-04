@@ -1,1 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// GLOBAL STYLES
+$--blue:    #5465FF;    // Neo Blue
+$--blush:   #F6E8EA;    // Lavender Blush
+$--flame:   #EC4E20;    // Flame
+$--primary-50: #FEEAE6; // 50
+
+
+
+
+// ANOTHER THEME
+$--primary: #FEDBD0; // 100
+$--complementary: #FFA78A; // 100
+$--secondary: #442C2E; // 900
+$--accent: #EC4E20;
+
+$--on-primary: #442C2E;
+$--on-primary2: #353531;
+
+$--on-secondary: #FEEAE6;
+$--on-secondary2: #FFFFFF;
+
+$--on-accent: #FFFFFF;
+$--on-accent2: #FEEAE6;
+
+$--error: #B00020;
+$--on-error: #FFFFFF;
+
+$--pink-white:#fffbfa;   // pink white
+$--white:   #ffffff;    // White
+$--black:   #353531;    // Black Olive
+
+
+// GENERIC STYLES
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: "Trade Gothic", "Roboto Condensed", sans-serif; 
+    // background-color: $--pink-white;
+    color: $--black;
+    // overflow-x: hidden;
+    font-size: 17px;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: -.01em;
+	-webkit-text-size-adjust: 100%;
+}
+blockquote, dl, dd,h1,h2,h3,h4,h5,h6,p,pre,hr,figure{
+    margin: 0px !important;
+}
+
+.my-primary{
+    background-color: $--primary !important;
+    color: $--on-primary !important;
+}
+.my-primary2{
+    background-color: $--primary !important;
+    color: $--on-primary2 !important;
+}
+.my-primary-text{
+    color: $--primary !important;
+}
+.my-secondary{
+    background-color: $--secondary !important;
+    color: $--on-secondary !important;
+}
+.my-secondary2{
+    background-color: $--secondary !important;
+    color: $--on-secondary2 !important;
+}
+.my-secondary-text{
+    color: $--secondary !important;
+}
+// .my-secondary2{
+//     background-color: #332323 !important;
+//     color: grey !important;
+// }
+.my-complementary{
+    background-color: $--complementary !important;
+    color: $--white !important;
+}
+.my-complementary-text{
+    color: $--complementary !important;
+}
+.my-accent{
+    background-color: $--accent !important;
+    color: $--on-accent !important;
+}
+.my-accent2{
+    background-color: $--accent !important;
+    color: $--on-accent2 !important;
+}
+.my-accent-text{
+    color: $--accent !important;
+}
+.outline-primary{
+    background-color: unset !important;
+    color: unset !important;
+    border: 2px solid $--primary !important;
+    color: $--primary !important;
+}
+.outline-secondary{
+    background-color: unset !important;
+    color: unset !important;
+    border: 2px solid $--secondary !important;
+    color: $--secondary !important;
+}
+.outline-accent{
+    background-color: unset !important;
+    color: unset !important;
+    border: 2px solid $--accent !important;
+    color: $--accent !important;
+}
+.flat-primary-button{
+    background-color: unset !important;
+    color: unset !important;
+    color: $--primary !important;
+}
+.flat-secondary-button{
+    background-color: unset !important;
+    color: unset !important;
+    color: $--secondary !important;
+}
+
+.my-tetiary{
+    background-color: $--primary-50;
+    color: $--on-primary;
+}
+
+.box{
+    box-shadow: #00000029 0px 5px 15px;
+    padding: 30px;
+}
+.hidescrollbar::-webkit-scrollbar{
+    display: none;
+}

@@ -1,0 +1,58 @@
+<div class="py-20 px-5 lg:px-10">
+    <div class="flex flex-wrap md:flex-nowrap items-center justify-between py-5">
+            <div class="text-4xl font-semibold py-5 flex items-center gap-5">Order No. #54879
+                <div class="flex items-center text-blue-600 font-normal">
+                    <a href="#" class="text-base">View invoice </a>
+                    <mat-icon>arrow_forward</mat-icon>
+                </div>                
+            </div>
+            <div class="text-gray-500 text-base">Order placed <span class="text-black"> March 22, 2021</span></div>
+        </div>
+    <div class="space-y-10 p-10 bg-gray-200 rounded-lg">
+        
+
+        <div class="py-1">
+            <app-order-tracker activeStep="1" [steps]="steps" />
+        </div>
+
+        <div class="space-y-6 mt-20">
+            <div *ngFor="let ordertItem of orders">
+                <app-order-card [showDetails]="true" />
+            </div>
+            <!-- SHIPPING AND DELIVERY INFOMATION -->
+            <div class="border bg-gray-100 rounded-md">
+                <div class="grid gap-5 grid-cols-1 md:grid-cols-2 p-10">
+
+                    <div class="col-span-3 md:col-span-1 text-gray-500">
+                        <div class="grid grid-cols-2 gap-5">
+                            <div class="">
+                                <div class="text-lg mb-3 text-black">Billing Address</div>
+                                <div class="text-base leading-7">Floyd Miles</div>
+                                <div class="text-base leading-7">7363 Cynthia Pass</div>
+                                <div class="text-base leading-7">Toronto, ON N3Y 4H8</div>
+                            </div>
+                            <div class="">
+                                <div class="text-lg mb-3 text-black">Payment information</div>
+                                <div class="text-base leading-7 flex">
+                                    <div>
+                                      <button class="bg-blue-700 rounded-lg mr-5" style="background-color: blue;color: white;padding: 3px 7px !important;"><i>Visa</i> </button>  
+                                    </div>                                    
+                                    <span>
+                                        Ending with: 2123 <br>
+                                        Expires: 02/24 
+                                    </span>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+            
+                    <div class="md:col-span-1 md:my-0 my-2">
+                        <app-price-detail-card [cart]="cart" />
+                    </div>
+            
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

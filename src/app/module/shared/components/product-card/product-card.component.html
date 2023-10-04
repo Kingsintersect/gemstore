@@ -1,0 +1,46 @@
+<div (click)="navigate()" class="productCard w-[20] m-3 transition-all cursor-pointer hover:shadow-lg">
+    <div class="group relative">
+        <div
+            class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+            <img [src]="product.imageUrl"
+                alt="Front of men's Basic Tee in dark gray."
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+        </div>
+        <div class="py-4 grid grid-cols-1 justify-between px-5 gap-x-2 bg-gray-100">
+            <div class="flex justify-between items-center">
+                <h3 class="text-sm text-gray-700">
+                    <a href="javascript: void();">
+                        <span aria-hidden="true" class="absolute inset-0"></span>
+                        {{product.brand}}
+                    </a>
+                </h3>
+                <p class="mt-1 text-sm text-gray-500 font-semibold" [style]="'color:'+product.color">{{product.color}}</p>
+            </div>
+            <div class="flex gap-x-3 justify-between items-center">
+                <p class="text-sm font-medium text-gray-900">${{product.discountedPrice}}</p>
+                <p class="text-sm font-medium text-gray-900">${{product.price}}</p>
+                <p class="text-sm font-medium text-green-600">${{product.discount}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="h-[20rem]">
+        <img class="h-full w-full" [src]="product.imageUrl" alt="Men Pants Image">
+    </div>
+
+    <div class="textPart p-3 bg-[#0b0b0b] ">
+        <div>
+            <p class="opacity-80">{{product.brand}}</p>
+            <p>{{product.title}}</p>
+            <p class="text-gray-600">{{product.color}}</p>
+        </div>
+
+        <div class="flex space-x-2 items-center">
+            <p class="font-bold">${{product.discountedPrice}}</p>
+            <p class="text-gray-600 line-through">${{product.price}}</p>
+            <p class="text-green-600 font-semibold">{{product.discount}} %</p>
+        </div>
+    </div> -->
+</div>
+
+
+

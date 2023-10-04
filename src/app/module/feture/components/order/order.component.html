@@ -1,0 +1,73 @@
+<div class="py-20 px-5 lg:px-20">
+    <div class="bg-white mb-5 p-10">
+        <div class="text-2xl text-gray-700 mb-3">My Order History</div>        
+        <div class="text-lg text-gray-400">Check the status of recent orders, manage returns, and discover similar products.</div>
+    </div>
+
+    <div class="lg:grid grid-cols-5 gap-5 ">
+        <div class="col-span-1">
+            <div class="bg-white p-5 rounded-3xl">
+                <div *ngFor="let option of orderfilter">
+                    <mat-checkbox [id]="option.value" [value]="option.value">
+                        <span class="text-sm text-gray-500">{{option.label}}</span>
+                    </mat-checkbox>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-4 space-y-5">
+            <div class="space-y-5" *ngFor="let item of orders;let i = index; let last=last">
+
+                <div class="group-order border rounded-xl mb-10 bg-gray-100">
+                    <div class="flex items-center justify-between p-5">
+                        <div class="flex items-center gap-10 justify-evenly">
+                            <div class="flex-col mr-5">
+                                <div class="text-lg text-gray-700">Order Number</div>
+                                <div class="text-lg text-gray-400">WU128645</div>
+                            </div>
+                            <div class="flex-col hidden mr-5 md:block">
+                                <div class="text-lg text-gray-700">Date placed</div>
+                                <div class="text-lg text-gray-400">
+                                    <time datetime="2021-07-12">July 12, 2021</time>
+                                </div>
+                            </div>
+                            <div class="flex-col mr-5">
+                                <div class="text-lg text-gray-700">Total Amount</div>
+                                <div class="text-lg font-bold my-accent-text">$399</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="gap-5 hidden xl:flex">
+                                <div><a class=" text-base" mat-stroked-button color="primary" [routerLink]="'/order/'+i">View Order</a></div>
+                                <div><a class=" text-base" mat-stroked-button color="primary" [routerLink]="'/order/'+i">View Invoice</a></div>
+                            </div>                            
+
+                            <div class="btn-menu xl:hidden">
+                                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu">
+                                    <a [routerLink]="'/order/'+i" mat-menu-item>
+                                        <mat-icon>dialpad</mat-icon>
+                                        <span>View Order</span>
+                                    </a>
+                                    <a [routerLink]="'#'" mat-menu-item disabled>
+                                        <mat-icon>voicemail</mat-icon>
+                                        <span>View Invoice</span>
+                                    </a>
+                                </mat-menu> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <a [routerLink]="'/order/'+i"> -->
+                        <div *ngFor="let orderItem of item">
+                            <app-order-card [showDetails]="false" [id]="i" />
+                        </div>
+                    <!-- </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

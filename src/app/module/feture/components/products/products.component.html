@@ -1,0 +1,71 @@
+<div class="flex flex-col items-center">
+    <main class="px-4 sm:px-6 max-w-7xl pb-10">
+        <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-40">
+            <div class="my-5">
+                <app-bread-crump />
+            </div>
+            
+            <div class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900">Category Filters</div>
+
+            <div class="flex items-center">
+                <div>
+                    <button mat-stroked-button [matMenuTriggerFor]="sortMenu">Sort</button>
+                    <mat-menu #sortMenu>
+                        <button mat-menu-item>Most Popular</button>
+                        <button mat-menu-item>Best Rating</button>
+                        <button mat-menu-item>Newest</button>
+                        <button mat-menu-item>Price: High-Low</button>
+                        <button mat-menu-item>Price: Low-High</button>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+
+        <section class="pt-6">
+            <div class="grid grid-cols-1 gap-6 gap-y-10 lg:grid-cols-5">
+
+                <div class="">
+                    <div class="flex items-center justify-between">
+                        <p class="text-2xl text-black font-bold">New Arrivals</p>
+                        <mat-icon>filter_list</mat-icon>
+                    </div>
+                    <form class="hidden lg:block">
+                        <ul role="list" class="space-y-1 border-b border-gray-200 py-7 text-sm font-medium text-gray-900">
+                            <li class="transition ease-in-out delay-75 duration-300 hover:transition-all hover:text-base hover:bg-[#e79f82]  hover:text-white rounded-md h-10 px-3 flex flex-col place-items-stretch pt-2">
+                                <a href="#">Totes</a>
+                            </li>
+                            <li class="transition ease-in-out delay-75 duration-300 hover:transition-all hover:text-base hover:bg-[#e79f82]  hover:text-white rounded-md h-10 px-3 flex flex-col place-items-stretch pt-2">
+                                <a href="#">Backpacks</a>
+                            </li>
+                            <li class="transition ease-in-out delay-75 duration-300 hover:transition-all hover:text-base hover:bg-[#e79f82]  hover:text-white rounded-md h-10 px-3 flex flex-col place-items-stretch pt-2">
+                                <a href="#">Travel Bags</a>
+                            </li>
+                            <li class="transition ease-in-out delay-75 duration-300 hover:transition-all hover:text-base hover:bg-[#e79f82]  hover:text-white rounded-md h-10 px-3 flex flex-col place-items-stretch pt-2">
+                                <a href="#">Hip Bags</a>
+                            </li>
+                            <li class="transition ease-in-out delay-75 duration-300 hover:transition-all hover:text-base hover:bg-[#e79f82]  hover:text-white rounded-md h-10 px-3 flex flex-col place-items-stretch pt-2">
+                                <a href="#">Laptop Sleeves</a>
+                            </li>
+                            
+                        </ul>
+                        
+                        <app-search-filter [FilterData]="filterData" />
+
+                        <mat-divider></mat-divider>
+
+                        <app-search-filter [FilterData]="singleFilterData" [radioType]=true />
+                    </form>
+                </div>
+
+                <div class="lg:col-span-4">
+                    <div class="grid grid-cols-3 gap-3">
+                        <ng-container *ngFor="let item of menPants; let i = index">
+                            <app-product-card [product]="item" [index]="i+1" />
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

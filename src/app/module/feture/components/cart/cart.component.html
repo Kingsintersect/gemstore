@@ -1,0 +1,42 @@
+<main class="relative mx-auto my-40 w-full max-w-container px-4 sm:px-6 md:px-8 lg:px-14 ">
+    <div class="border rounded-lg">
+        <div class="py-16 px-3 sm:px-7 sm:max-w-2xl sm:mx-auto  lg:mx-0 lg:max-w-full lg:px-10">
+            <div class="flex flex-col">
+                <div class="my-3 text-3xl font-extrabold tracking-tight text-slate-900 ">
+                    <span>Cart</span>
+                    <span class="text-4xl font-bold text-gray-400 inline-block ml-5">(3 Items)</span>
+                </div>
+            </div>
+
+            <form class="mt-7 grid col-span-1 lg:grid-cols-12 justify-items-start gap-16" action="javascript:void();">
+                <section class="col-span-1 lg:col-span-7 w-full" id="cart">
+                    <div class="border-y">
+                        <ng-container *ngIf="cart">
+                            <div class="border-b py-10" [ngClass]="{ 'border-b': !last, }"
+                                *ngFor="let product of cart; let last=last">
+                                <app-cart-item showButton="true" [imageSize]="40" />
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </section>
+
+                <section class="col-span-1 lg:col-span-5 w-full">
+                    <div class="p-10 bg-gray-50 rounded-md">
+                        <p class="font-bold text-gray-500 pb-4">PRICE DETAILS</p>
+                        <mat-divider></mat-divider>
+                        <app-price-detail-card [cart]="cart" />
+                        <!-- <app-generic-button buttonText="CHECKOUT" color="blue" /> -->
+                        <button mat-raised-button (click)="navigateToCheckout()" style="padding: 1.5rem;"
+                            class="text-lg mt-8 p-28 px-10 w-full cursor-pointer my-accent">CHECKOUT</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+    <button
+        class="fixed bottom-40 right-20 px-4 py-2 font-semibold text-sm bg-blue-500 text-white rounded-md shadow-sm hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ease-in-out delay-150 duration-300">
+        <mat-icon>shopping_cart</mat-icon>
+        <div class="px-2 py-1 inline-flex items-center bg-orange-600 rounded-full absolute -top-3 -right-3">5</div>
+    </button>
+</main>

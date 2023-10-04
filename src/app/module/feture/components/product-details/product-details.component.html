@@ -1,0 +1,221 @@
+<div class="p-5 lg:p-14 mt-10">
+    <div class="border rounded-lg p-10 space-y-5">
+
+        <section class="flex items-center flex-wrap space-x-4">
+            <nav aria-label="Breadcrumbs" class="order-first flex space-x-2 text-sm font-semibold">
+                <a class="text-slate-500 hover:text-slate-600" href="/components#product-ecommerce">Women</a>
+                <div aria-hidden="true" class="select-none text-slate-400">/</div>
+                <a class="text-slate-500 hover:text-slate-600" href="/components#product-ecommerce-components">Clothing</a>
+                <div aria-hidden="true" class="select-none text-slate-400">/</div>
+                <a class="text-slate-500 hover:text-slate-600" href="/components#product-ecommerce-components">Basic Tee</a>
+            </nav>
+        </section>
+        
+        <section class="lg:grid grid-cols-2 lg:gap-16">
+            <div class="col-span-1 grid grid-cols-1">
+                <div class="col-span-1">
+                   <img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> 
+                </div>
+                
+                <div class="col-span-1">
+                    <app-share-buttons />
+                </div>  
+                <div class="col-span-1 hidden md:flex justify-between">
+                    <div class="w-20 cursor-pointer"><img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> </div>
+                    <div class="w-20 cursor-pointer"><img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> </div>
+                    <div class="w-20 cursor-pointer"><img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> </div>
+                    <div class="w-20 cursor-pointer"><img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> </div>
+                </div>                      
+            </div>
+
+            <div class="col-span-1 space-y-8 mt-10 px-10 lg:px-0 lg:mt-0 text-gray-500">
+                <div class="space-y-2">
+                    <p class="font-semibold text-black text-3xl">Basic Tee</p>
+                    <p class="text-base">Men Solid Pure Cotton Straight Kutar</p>
+                </div>
+                <!-- <mat-divider></mat-divider> -->
+                <div class="flex items-center space-x-5 text-lg text-black">
+                    <p class="">Price: <span class="font-light">USD</span></p>
+                    <p class=""> $100</p>
+                    <p class=" text-gray-700 line-through">$100</p>
+                    <p class=" text-green-600 font-semibold">$100</p>
+                </div>
+                <!-- <mat-divider></mat-divider> -->
+                <div class="flex items-center  text-lg">
+                    <p class="text-black" style="margin: 0px !important;">Color: </p>
+                    <mat-radio-group
+                    class="space-x-1"
+                    [(ngModel)]="selectedColor"
+                    >
+                        <mat-radio-button value="black">Black</mat-radio-button>
+                        <mat-radio-button value="white">White</mat-radio-button>
+                        <mat-radio-button color="primary" value="blue">Blue</mat-radio-button>
+                        <mat-radio-button color="accent" value="red">Red</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <!-- <mat-divider></mat-divider> -->
+                <div class="flex items-center  text-lg">
+                    <p class="text-black" style="margin: 0px !important;">Size: </p>
+                    <mat-radio-group
+                    class="space-x-2"
+                    [(ngModel)]="selectedColor"
+                    >
+                        <mat-radio-button value="S">S</mat-radio-button>
+                        <mat-radio-button value="M">M</mat-radio-button>
+                        <mat-radio-button value="L">L</mat-radio-button>
+                        <mat-radio-button value="XL">XL</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <!-- <mat-divider></mat-divider> -->
+                <div class="flex items-center space-x-4 text-lg">
+                    <div class="text-black">Quantity: </div>
+                    <button mat-stroked-button>-</button>
+                    <div class="border px-4 py-1">5</div>
+                    <button mat-stroked-button>+</button>
+                </div>
+
+                <mat-divider></mat-divider>
+                <div class="font-bold text-lg my-5">
+                    <p class="text-2xl font-normal text-black">Shipping: $70</p>
+                    <p>Brand: new</p>
+                </div>
+
+                <div class="flex items-center  justify-between">
+                    <button mat-raised-button 
+                    (click)="handleAddToCart()" 
+                    class="my-complementary text-base"
+                    style="padding: 1.5rem 2.5rem;"
+                    >
+                        <mat-icon class="">shopping_cart</mat-icon>
+                        Add TO Cart
+                    </button>
+                    <button mat-raised-button 
+                    (click)="handlePurchase()" 
+                    class="my-accent text-base"
+                    style="padding: 1.5rem 2.5rem;"
+                    >
+                        <mat-icon class="">favorite</mat-icon>
+                        Buy Now
+                    </button>
+                </div>
+
+                <div class=" space-y-3">
+                    <div class="text-lg text-black mb-5">Description</div>
+                    <p class="normal text-gray-700 text-base leading-7">
+                        The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.
+                    </p>
+                    <p class="normal text-gray-700 text-base leading-7">
+                        Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <mat-divider></mat-divider>
+        <section class="grid grid-cols-1 pt-10">
+            <h1 class="font-serif text-lg pb-4">Recent Reviews & Rating</h1>
+
+            <div class="rounded-md">
+                <div class="lg:grid grid-cols-12 gap-14">
+                    <div class="col-span-7">
+                        <div class="space-y-10">
+                            <div class="shadow-md" *ngFor="let item of reviews">
+                                <app-product-review-card />
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-span-5 mt-10lg:mt-0">
+                        <div class="shadow-md py-10 px-5">
+                            <div class="font-semibold text-xl pb-1">Product Ratings</div>
+                            <div class="flex items-center space-x-3 pb-10">
+                                <app-star-rating />
+                                <p class="opacity-60">46537 Ratings</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="grade">
+                                    <div class="grid grid-cols-12 justify-around items-center">
+                                        <div class="col-span-2">
+                                            <span class="">Excellent</span>
+                                        </div>
+                                        <div class="col-span-8 px-4">
+                                            <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <span class="opacity-50">12984</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grade">
+                                    <div class="grid grid-cols-12 justify-around items-center">
+                                        <div class="col-span-2">
+                                            <span class="">Very Good</span>
+                                        </div>
+                                        <div class="col-span-8 px-4">
+                                            <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <span class="opacity-50">1984</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grade">
+                                    <div class="grid grid-cols-12 justify-around items-center">
+                                        <div class="col-span-2">
+                                            <span class="">Good</span>
+                                        </div>
+                                        <div class="col-span-8 px-4">
+                                            <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <span class="opacity-50">984</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grade">
+                                    <div class="grid grid-cols-12 justify-around items-center">
+                                        <div class="col-span-2">
+                                            <span class="">Average</span>
+                                        </div>
+                                        <div class="col-span-8 px-4">
+                                            <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <span class="opacity-50">2984</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grade">
+                                    <div class="grid grid-cols-12 justify-around items-center">
+                                        <div class="col-span-2">
+                                            <span class="">Poor </span>
+                                        </div>
+                                        <div class="col-span-8 px-4">
+                                            <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <span class="opacity-50">184</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-10">
+            <h1 class="py-5 text-gray-400">Related Products</h1>
+            <div class="flex justify-around flex-wrap">
+                <div *ngFor="let item of relatedProducts; let i = index">
+                    <app-product-card [product]="item" [index]="i+1" />
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>

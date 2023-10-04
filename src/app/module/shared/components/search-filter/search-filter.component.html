@@ -1,0 +1,66 @@
+<div class="filter-data" *ngFor="let item of FilterData; let last = last">
+    <div class="py-6">
+        <span class="font-medium ">{{item.name}}</span>
+        <div class="pt-6 " id="filter-section-0">
+            <div class="scroll-py-4">
+                <div *ngFor="let option of item.options">
+                    <div class="flex items-center" *ngIf="radioType; else other">
+                        <mat-radio-button class="" id="`filter - `+ {{option.value}}" [name]="item.id"
+                            [value]="option.value" [color]="option.color"
+                            (click)="handleSingleSelectFilter(option.value, item.id)">
+                            <span class="text-sm text-gray-500">{{option.label}}</span>
+                        </mat-radio-button>
+                    </div>
+                    <ng-template class="flex items-center" #other>
+                        <mat-checkbox class="" id="`filter - `+ {{option.value}}" [name]="item.id" [value]="option.value"
+                            [color]="option.color" (click)="handleMultipleSeletedFilter(option.value, item.id)">
+                            <span class="text-sm text-gray-500">{{option.label}}</span>
+                        </mat-checkbox>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-divider *ngIf="!last"></mat-divider>
+</div>
+
+
+<!-- <mat-accordion class="example-headers-align">
+    <mat-expansion-panel
+    *ngFor="let item of FilterData; let last = last; let i=index"
+     [expanded]="step === i" (opened)="setStep(i)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="font-medium ">{{item.name}}</span>
+            </mat-panel-title>
+            <mat-panel-description>
+                <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="pt-6 " id="filter-section-0">
+            <div class="scroll-py-4">
+                <div *ngFor="let option of item.options">
+                    <div class="flex items-center" *ngIf="radioType; else other">
+                        <mat-radio-button class="" id="`filter - `+ option.value" [name]="item.id"
+                            [value]="option.value" [color]="option.color"
+                            (click)="handleSingleSelectFilter(option.value, item.id)">
+                            <span class="text-sm text-gray-500">{{option.label}}</span>
+                        </mat-radio-button>
+                    </div>
+                    <ng-template class="flex items-center" #other>
+                        <mat-checkbox class="" id="`filter - `+ option.value" [name]="item.id" [value]="option.value"
+                            [color]="option.color" (click)="handleMultipleSeletedFilter(option.value, item.id)">
+                            <span class="text-sm text-gray-500">{{option.label}}</span>
+                        </mat-checkbox>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+
+        <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+
+</mat-accordion> -->

@@ -1,0 +1,220 @@
+<!-- <div class="mt-10">
+    <h1 class="py-10 text-center text-3xl ">ADD SHIPPING ADDRESS</h1>
+
+    <app-address-form />
+</div> -->
+
+
+<div class="px-10 py-20 space-y-5">
+    <div class="title">
+        <div class="text-3xl py-10">Checkout Form</div>
+    </div>
+
+    <div class="text-lg text-gray-500">Contact and payment details, with order summary</div>
+    <div class="bg-gray-50 px-10 md:py-20 rounded-xl border">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
+            <div class="grid-cols-1">
+                <form>
+                    <div class="space-y-12">
+                        <div class="border-b border-gray-900/10 pb-12">
+
+                            <div class="text-xl leading-7 text-gray-600">Contact Information</div>
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
+                                <div class="">
+                                    <label for="email" class="block text-lg font-normal leading-6 text-gray-600">Email
+                                        address</label>
+                                    <div class="mt-2">
+                                        <input id="email" name="email" type="email" autocomplete="email"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <label for="number" class="block text-lg font-normal leading-6 text-gray-600">Phone number</label>
+                                    <div class="mt-2">
+                                        <input id="number" name="text" type="number" autocomplete="cc-number"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10 grid grid-cols-1 mb-14"><mat-divider></mat-divider></div>
+                            <div class="text-xl leading-7 text-gray-600">Shipping Information</div>
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="sm:col-span-3">
+                                    <label for="first-name"
+                                        class="block text-lg font-normal leading-6 text-gray-600">First name</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-3">
+                                    <label for="last-name"
+                                        class="block text-lg font-normal leading-6 text-gray-600">Last name</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+
+                                <div class="col-span-full">
+                                    <label for="street-address"
+                                        class="block text-lg font-normal leading-6 text-gray-600">Street address</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="street-address" id="street-address"
+                                            autocomplete="street-address"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-3">
+                                    <label for="country"
+                                        class="block text-lg font-normal leading-6 text-gray-600">Country</label>
+                                    <div class="mt-2">
+                                        <select id="country" name="country" autocomplete="country-name"
+                                            class="block bg-white w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs text-lg leading-6">
+                                            <option>United States</option>
+                                            <option>Canada</option>
+                                            <option>Mexico</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-2 sm:col-start-1">
+                                    <label for="city"
+                                        class="block text-lg font-normal leading-6 text-gray-600">City</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="city" id="city" autocomplete="address-level2"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-2">
+                                    <label for="state" class="block text-lg font-normal leading-6 text-gray-600">State
+                                        / Province</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="state" id="state" autocomplete="address-level1"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-2">
+                                    <label for="zipCode"
+                                        class="block text-lg font-normal leading-6 text-gray-600">ZIP / Postal
+                                        code</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="zipCode" id="zipCode"
+                                            autocomplete="zipCode"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10 grid grid-cols-1 mb-14"><mat-divider></mat-divider></div>
+                            <div class="text-xl leading-7 text-gray-600">Delivery method</div>
+                            <div class="mt-10 grid grid-cols-2 gap-x-6 gap-y-8">
+                                <div class="col-span-1">
+                                    <div class="p-5 border-4 border-blue-700 shadow-md bg-white rounded-lg">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-black">Standard</span>
+                                            <mat-icon class="text-base text-blue-700">check_circle</mat-icon>
+                                        </div>
+                                        <div class="text-gray-500 mb-7">4–10 business days</div>
+                                        <div class="text-black">$5.00</div>
+                                    </div>
+                                </div>
+                                <div class="col-span-1">
+                                    <div class="p-5 border border-gray-300 shadow-md bg-white rounded-lg">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-black">Standard</span>
+                                            <mat-icon class="text-base text-blue-700 hidden">check_circle</mat-icon>
+                                        </div>
+                                        <div class="text-gray-500 mb-7">4–10 business days</div>
+                                        <div class="text-black">$5.00</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-10 grid grid-cols-1 mb-14"><mat-divider></mat-divider></div>
+                            <div class="text-xl leading-7 text-gray-600">Payment</div>
+                            <fieldset>
+                                <div class="mt-6 flex items-center gap-x-5">
+                                    <div class="flex items-center gap-x-3">
+                                        <input id="creditCard" name="payment" type="radio"
+                                            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600" checked>
+                                        <label for="creditCard"
+                                            class="block text-base font-normal leading-6 text-gray-600">Credit Card</label>
+                                    </div>
+                                    <div class="flex items-center gap-x-3">
+                                        <input id="paypal" name="payment" type="radio"
+                                            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                        <label for="paypal"
+                                            class="block text-base font-normal leading-6 text-gray-600">Paypal</label>
+                                    </div>
+                                    <div class="flex items-center gap-x-3">
+                                        <input id="eTransfer" name="payment" type="radio"
+                                            class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                        <label for="eTransfer"
+                                            class="block text-base font-normal leading-6 text-gray-600">E - Transfer</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                                <div class="col-span-full">
+                                    <label for="cardNumber" class="block text-lg font-normal leading-6 text-gray-600">Card number
+                                        address</label>
+                                    <div class="mt-2">
+                                        <input id="cardNumber" name="cardNumber" type="cardNumber" autocomplete="cardNumber"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                                <div class="col-span-full">
+                                    <label for="nameOnCard" class="block text-lg font-normal leading-6 text-gray-600">Name on card</label>
+                                    <div class="mt-2">
+                                        <input id="nameOnCard" name="text" type="nameOnCard" autocomplete="nameOnCard"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-4 sm:col-start-1">
+                                    <label for="expDate"
+                                        class="block text-lg font-normal leading-6 text-gray-600">Expiration date</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="expDate" id="expDate" autocomplete="expDate"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label for="cvc"
+                                        class="block text-lg font-normal leading-6 text-gray-600">CVC</label>
+                                    <div class="mt-2">
+                                        <input type="text" name="cvc" id="cvc" autocomplete="cvc"
+                                            class="block w-full rounded-md border-0 py-2.5 px-5 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="grid-cols-1">
+                <div class="text-xl leading-7 text-gray-600">Order summary</div>
+                <div class="bg-white p-5 mt-10 shadow-md rounded-lg grid grid-cols-1 gap-x-6 gap-y-8">
+                    <div class="col-span-1 pb-7 border-b" *ngFor="let item of cart; let i=index; let last = last">
+                        <app-cart-item imageSize="24" />
+                    </div>
+
+                    <div class="px-7 py-5">
+                        <app-price-detail-card [cart]="cart" />
+                    </div>
+                    
+                    <mat-divider></mat-divider>
+
+                    <div class="px-10">
+                        <button (click)="handleConfirmOrder()" mat-raised-button style="padding: 1.5rem;" class="text-lg mt-8 p-28 px-10 w-full cursor-pointer my-accent">Confirm Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

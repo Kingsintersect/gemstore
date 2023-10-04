@@ -1,0 +1,122 @@
+<div class="flex items-center justify-between py-3 px-5 rounded-2xl bg-white">
+    <div class="cursor-pointer border px-3 py-1" (click)="toggleMenu()"><mat-icon>menu</mat-icon></div>
+    <div class="search w-[35%]">
+        <form class="example-form">
+            <div class="example-full-width relative">
+                <input name="search" class="search-input" id="search" type="text" placeholder="Search">
+                <mat-icon class="absolute right-3 top-2" matSuffix>search</mat-icon>
+            </div>
+          </form>          
+    </div>
+    <div class="search w-[30%]">
+        <input class="w-[70px]" matInput [matDatepicker]="picker">
+        <mat-datepicker #picker></mat-datepicker>
+        <button mat-flat-button (click)="picker.open()">Date</button>
+    </div>
+    <div class="search">
+        <mat-chip-listbox aria-label="Dog selection">
+            <mat-chip>
+              <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
+              Dog one
+            </mat-chip>
+            <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+          </mat-chip-listbox>
+    </div>
+</div>
+
+<div class="my-7 bg-gray-100 border rounded-lg sm:px-10 sm:py-10 sm:max-w[80rem] sm:mx-auto">
+    <div>
+        <div class="text-lg text-black font-normal">Last 30 days</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+            <ng-container *ngFor="let item of [1,1,1]">
+                <app-data-summary />
+            </ng-container>
+            
+        </div>
+    </div>
+</div>
+
+<div class="my-3">
+    <div class="py-5 px-10 rounded-2xl bg-white">
+        <div class="flex items-center justify-between py-2">
+            <div class="grow ">
+                <h1 class="font-extrabold">Last Tasks</h1>
+                <p class="text-gray-500"><span class="text-blue-950 font-bold inline-block mr-2">117 Total</span> Proceed to resolve them</p>
+            </div>
+            <div class="flex-none w-20 text-center border-r border-r-gray-200">
+                <h1 class="">95</h1>
+                <p class="text-gray-500">Done</p>
+            </div>
+            <div class="flex-none w-20 text-center">
+                <h1 class="">23</h1>
+                <p class="text-gray-500">Progress</p>
+            </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div id="table">
+            <table mat-table [dataSource]="dataSource" class="">
+
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef class="w-1">
+                    <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                [aria-label]="checkboxLabel()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                [aria-label]="checkboxLabel(row)">
+                    </mat-checkbox>
+                </td>
+                </ng-container>
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="w-1"> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+            
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+            
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef class=""> Symbol </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    (click)="selection.toggle(row)">
+                </tr>
+            </table>          
+        </div>
+    </div>    
+</div>
+
+
+<div class="my-5">
+    <div class="columns-1 md:columns-2">
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Productivity</h4>
+        </div>
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Projects in Progress</h4>
+        </div>
+    </div>
+</div>
