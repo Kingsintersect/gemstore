@@ -9,6 +9,13 @@ import { FetureModule } from './module/feture/feture.module';
 import { SharedModule } from './module/shared/shared.module';
 import { MaterialModule } from './module/material.module';
 import { AdminModule } from './module/admin/admin.module';
+import { AuthModule } from './module/auth/auth.module';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './State/Auth/auth.reducers';
+import { userReducer } from './State/User/user.reducer';
+import { HttpClientModule } from '@angular/common/http';
+import { productReducer } from './State/Product/product.reducer';
+import { cartReducer } from './State/Cart/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -22,6 +29,9 @@ import { AdminModule } from './module/admin/admin.module';
     SharedModule,
     MaterialModule,
     AdminModule,
+    AuthModule,
+    StoreModule.forRoot({auth: authReducer, user: userReducer, product:productReducer, cart:cartReducer}),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

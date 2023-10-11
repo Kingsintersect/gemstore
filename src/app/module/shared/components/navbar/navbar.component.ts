@@ -1,20 +1,46 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/Models/AppState';
+import { UserService } from 'src/app/State/User/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
-
-  loggedIn: boolean = true;
-
+export class NavbarComponent implements OnInit, OnDestroy {
+  
   currentSection:any;
   isNavMenuOpen:any;
   isMobilemenu:boolean = false;
 
-  constructor(private router: Router){}
+  userProfile: any;
+  subscriptions: Subscription = new Subscription;
+
+  constructor(private router: Router, private userService: UserService, private store: Store<AppState>){}
+
+  ngOnInit(): void {
+    if(localStorage.getItem("jwt")) this.userService.getUserProfile(),
+
+    this.subscriptions = this.store.pipe(select((store) => store.user))
+    .subscribe((user) => {
+      this.userProfile = user.userProfile;
+
+      if(user.userProfile){
+        this.router.navigate([this.router.url]);
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  handleAuthentication(){
+    this.router.navigate(["/login"])
+  }
 
   toggleMobileMenu() {
     this.isMobilemenu = !this.isMobilemenu;
@@ -31,6 +57,10 @@ export class NavbarComponent {
 
   navigateTo(path:any){
     this.router.navigate([path]);
+  }
+  
+  handleLogout = () => {
+    this.userService.logOut();
   }
 
   @HostListener('document:click', [`$event`])
@@ -50,4 +80,5 @@ export class NavbarComponent {
       this.closeNavBarMenu();
     }
   }
+
 }

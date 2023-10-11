@@ -1,0 +1,54 @@
+<main class="relative mx-auto my-20 w-full max-w-md px-4   sm:px-6 md:px-8 lg:px-14 lg:max-w-lg">
+    <div class="border border-green-400 rounded-lg text-center grid grid-cols-1 p-10">
+        <div class="col-span-1 mb-10">
+            <ng-icon name="heroCheckCircle" size="5.5rem" color="green" strokeWidth="1px"></ng-icon>
+        </div>
+        <div class="grid grid-cols-1">
+            <div class="grid-cols-1">
+                <form [formGroup]="loginform" (ngSubmit)="handleSignin()">
+                    <div class="space-y-12">
+                        <div class="border-b border-gray-900/10 pb-12">
+
+                            <div class="text-xl leading-7 text-gray-600">Sign In</div>
+                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
+                                <div class="">
+                                    <label for="email" class="block text-lg font-normal leading-6 text-gray-600">Email
+                                        address</label>
+                                    <div class="mt-2">
+                                        <input id="email" formControlName="email" type="email" autocomplete="email"
+                                        required
+                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+
+                                        <mat-error *ngIf="loginform.controls['email'].hasError('required')">Email is required!</mat-error>
+                                        <mat-error *ngIf="loginform.controls['email'].hasError('email')">Enter a valid Email address!</mat-error>
+                                    </div>
+                                </div>
+
+                                <div class="">
+                                    <label for="password" class="block text-lg font-normal leading-6 text-gray-600">Password</label>
+                                    <div class="mt-2">
+                                        <input id="password" formControlName="password" type="password" autocomplete="password"
+                                        required
+                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+
+                                        <mat-error *ngIf="loginform.controls['password'].hasError('required')">Password is required!</mat-error>
+                                        <mat-error *ngIf="loginform.controls['password'].hasError('minlength')">Password should at least be 8 characters long!</mat-error>
+                                    </div>
+                                </div>
+
+                                <div class="px-10">
+                                    <button mat-raised-button style="padding: 1.7rem;" class="text-lg mt-8 p-28 px-10 w-full cursor-pointer my-accent">LOGIN</button>
+                                </div>
+
+                                <div class="">
+                                    <span class="">If you dont have an account ? </span>
+                                    <button (click)="changeTamplate()" mat-button>REGISTER</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
