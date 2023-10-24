@@ -1,3 +1,5 @@
+<app-page-hero [pageTitle]="pageTitle" />
+
 <div class="p-5 lg:p-14 mt-10">
     <div class="border rounded-lg p-10 space-y-5">
 
@@ -14,6 +16,7 @@
         <section class="lg:grid grid-cols-2 lg:gap-16">
             <div class="col-span-1 grid grid-cols-1">
                 <div class="col-span-1">
+                   <!-- <img class="w-full rounded-lg" [src]="product.imageUrl" alt="product image">  -->
                    <img class="w-full rounded-lg" src="https://rukminim1.flixcart.com/image/612/612/xif0q/kurta/g/6/k/m-sksh-dt1105-pcbl-fubar-original-imafux247zhqym2z-bb.jpeg?q=70" alt="product image"> 
                 </div>
                 
@@ -211,8 +214,8 @@
         <section class="mt-10">
             <h1 class="py-5 text-gray-400">Related Products</h1>
             <div class="flex justify-around flex-wrap">
-                <div *ngFor="let item of relatedProducts; let i = index">
-                    <app-product-card [product]="item" [index]="i+1" />
+                <div *ngFor="let item of relatedProducts">
+                    <app-product-card [product]="item"/>
                 </div>
             </div>
         </section>

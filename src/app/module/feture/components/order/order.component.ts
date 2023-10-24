@@ -9,6 +9,8 @@ import { twoDmArray } from 'src/Data/placeholder_data';
 })
 export class OrderComponent implements OnInit {
 
+  pageTitle = "Order history"
+
   orders: any;
   orderfilter = [
     {label: "On The Way", value: "on_the_way"},

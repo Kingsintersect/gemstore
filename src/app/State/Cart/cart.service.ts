@@ -21,7 +21,7 @@ export class CartService{
     ){};  
 
     addItemToCart(reqData: any) {
-        const url = `${this.API_BASE_URL}/api/cart/add`;
+        const url = `${this.API_BASE_URL}/cart/add`;
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -44,7 +44,7 @@ export class CartService{
     }
 
     getCart() {
-        const url = `${this.API_BASE_URL}/api/cart/`;
+        const url = `${this.API_BASE_URL}/cart/`;
         const headers = new HttpHeaders({
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
             'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export class CartService{
     }
 
     removeCartItem(cartItemId: Number) {
-        const url = `${this.API_BASE_URL}/api/cart_items/${cartItemId}`;
+        const url = `${this.API_BASE_URL}/cart_items/${cartItemId}`;
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -85,8 +85,8 @@ export class CartService{
         ).subscribe((action) => this.store.dispatch(action));
     }
     
-    updateItemToCart(reqData: any) {
-        const url = `${this.API_BASE_URL}/api/cart_items/${reqData.cartItemId}`;
+    updateCartItem(reqData: any) {
+        const url = `${this.API_BASE_URL}/cart_items/${reqData.cartItemId}`;
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,

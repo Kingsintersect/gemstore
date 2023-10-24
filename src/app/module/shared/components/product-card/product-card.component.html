@@ -14,12 +14,16 @@
                         {{product.brand}}
                     </a>
                 </h3>
-                <p class="mt-1 text-sm text-gray-500 font-semibold" [style]="'color:'+product.color">{{product.color}}</p>
+                <div class="flex items-center">
+                    <div class="p-2 rounded-full mr-2" [style]="'background-color:'+product.color"></div>
+                    <p class="mt-1 text-sm text-gray-500 font-semibold" [style]="'color:'+product.color">{{product.color}}</p>
+                </div>
+                
             </div>
             <div class="flex gap-x-3 justify-between items-center">
                 <p class="text-sm font-medium text-gray-900">${{product.discountedPrice}}</p>
                 <p class="text-sm font-medium text-gray-900">${{product.price}}</p>
-                <p class="text-sm font-medium text-green-600">${{product.discount}}</p>
+                <p class="text-sm font-medium text-green-600">${{product.discountPersent}}</p>
             </div>
         </div>
     </div>

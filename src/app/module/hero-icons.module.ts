@@ -2,6 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconsModule, provideNgIconsConfig } from '@ng-icons/core';
 import { 
+
+  heroCog6Tooth,
+  heroQuestionMarkCircle,
+  heroInformationCircle,
+  heroBuildingOffice,
+  heroListBullet,
+  heroDocumentPlus,
+  heroChartBarSquare,
+  heroChartPie,
+  heroCircleStack,
+
+
   heroCheck, 
   heroUsers, 
   heroCheckCircle,
@@ -21,6 +33,8 @@ import {
   heroChevronDown,
   heroChevronUpDown,
   heroClock,
+  heroShoppingCart,
+  heroShoppingBag,
   heroCog8Tooth,
   heroCurrencyDollar,
   heroEnvelope,
@@ -29,7 +43,11 @@ import {
   heroEyeSlash,
   heroFolder,heroGif,heroGlobeAlt,heroHome,heroHeart,heroHandThumbUp,heroHandThumbDown,heroLink,heroMinus,heroPhone,heroPhoto,heroUser,heroUserGroup,heroUserMinus,heroUserPlus,heroXMark,heroXCircle,heroWifi,
 } from '@ng-icons/heroicons/outline';
-
+import { 
+  heroShoppingCartSolid,
+  heroBars3Solid,
+  heroXMarkSolid,
+} from "@ng-icons/heroicons/solid";
 
 
 @NgModule({
@@ -38,6 +56,20 @@ import {
     CommonModule,
     NgIconsModule.withIcons(
       {
+        
+        heroCog6Tooth,
+        heroQuestionMarkCircle,
+        heroInformationCircle,
+        heroBuildingOffice,
+        heroListBullet,
+        heroDocumentPlus,
+        heroChartBarSquare,
+        heroChartPie,
+        heroCircleStack,
+
+
+
+
         heroUsers,
         heroCheckCircle,
         heroCheck,
@@ -57,6 +89,7 @@ import {
         heroChevronDown,
         heroChevronUpDown,
         heroClock,
+        heroShoppingCart,
         heroCog8Tooth,
         heroCurrencyDollar,
         heroEnvelope,
@@ -64,6 +97,11 @@ import {
         heroEye,
         heroEyeSlash,
         heroFolder,heroGif,heroGlobeAlt,heroHome,heroHeart,heroHandThumbUp,heroHandThumbDown,heroLink,heroMinus,heroPhone,heroPhoto,heroUser,heroUserGroup,heroUserMinus,heroUserPlus,heroXMark,heroXCircle,heroWifi,
+
+
+        heroShoppingCartSolid,
+        heroBars3Solid,
+        heroXMarkSolid,
       }
     ),
   ],

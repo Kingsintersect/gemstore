@@ -16,6 +16,7 @@ import { userReducer } from './State/User/user.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { productReducer } from './State/Product/product.reducer';
 import { cartReducer } from './State/Cart/cart.reducer';
+import { orderReducer } from './State/Order/order.reducer';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,16 @@ import { cartReducer } from './State/Cart/cart.reducer';
     MaterialModule,
     AdminModule,
     AuthModule,
-    StoreModule.forRoot({auth: authReducer, user: userReducer, product:productReducer, cart:cartReducer}),
+    StoreModule.forRoot(
+      {
+        auth: authReducer, 
+        user: userReducer, 
+        product:productReducer, 
+        cart:cartReducer,
+        order:orderReducer,
+      },
+      {}
+    ),
     HttpClientModule,
   ],
   providers: [],

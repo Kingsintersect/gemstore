@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { menu } from './nav-menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,8 +12,14 @@ export class NavMenuComponent implements OnInit {
   category:any;
   @Input() selectedSection:any;
 
+  constructor(private router: Router){}
+
   ngOnInit() {
     this.category = menu;
+  }
+
+  handleNavigate = (path: any) => {
+    this.router.navigate([path])
   }
 
 }

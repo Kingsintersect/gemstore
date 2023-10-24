@@ -1,145 +1,63 @@
-<div class="fixed drop-shadow-lg top-0 z-50 right-0 left-0 my-primary">
-
-    <div class="relative px-5 lg:px-20 h-20 flex items-center justify-between">
-        
-        <div class="logo-bearer flex items-center">
-            <div class="mr-5">
-                <img class="w-8" src="" alt="GemStore">
-            </div>
-
-            <div class="left-nav hidden md:block">
-                <div class="flex items-center space-x-4">
-                    <a routerLink="/" class="text-grey-800 font-semibold text-lg">
-                        Shop Now
-                    </a>
-                    <div>
-                        <button class="open-button font-bold" (click)="openMenu('men')" mat-button>Men</button>
-                    </div>
-                    <div>
-                        <button class="open-button font-bold" (click)="openMenu('women')" mat-button>Women</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="right-nav hidden items-center md:flex">
-
-            <button class="px-5" (click)="navigateTo('cart')" mat-icon-button>
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-
-            <button (click)="handleAuthentication()" *ngIf="!userProfile" mat-stroked-button type="" class="flat-secondary-button">LOGIN</button>
-
-            <div *ngIf="userProfile" class="relative ml-3 flex items-center">
-                <div class="flex items-center space-x-5">
-
-                    <span class="font-bold text-lg">{{userProfile.firstName}}</span>
-                    <button mat-stroked-button [matMenuTriggerFor]="profileMenu">
-                        <img class="h-5 w-5" src="assets/avatar/avatar1.webp" alt="User">
-                    </button>
-                    <mat-menu #profileMenu="matMenu">
-                        <a routerLink="account/orders"><button mat-menu-item>Order</button></a>
-                        <a routerLink="/"><button mat-menu-item>Profile</button></a>
-                        <a routerLink="admin"><button mat-menu-item>Admin</button></a>
-                        <button mat-menu-item (click)="handleLogout()">Logout</button>
-                    </mat-menu>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mobile-nav md:hidden cursor-pointer">
-            <mat-icon (click)="toggleMobileMenu()">menu</mat-icon>
-        </div>
-        <div *ngIf="isMobilemenu" class="absolute md:hidden top-16 z-50 left-0 right-0 w-full drop-menu my-primary">
-            <mat-selection-list role="list">
-                <mat-list-item role="listitem">Item 1</mat-list-item>
-                <mat-list-item role="listitem">Item 2</mat-list-item>
-                <mat-list-item role="listitem">Item 3</mat-list-item>
-            </mat-selection-list>                  
-        </div>
-
-    </div>
-
-    
-    <div *ngIf="isNavMenuOpen" class="absolute right-0 left-0 modal-container">
-        <app-nav-menu [selectedSection]="currentSection" />
-    </div>
-
-</div>
 
 
+<header class=" z-40 w-full bg-black bg-opacity-10">
+	<nav class="flex justify-between items-center w-[92%] mx-auto">
+		<div class="z-30">
+			<a routerLink="/" class="block w-full py-5">
+				<img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo" class="w-full" />
+			</a>
+		</div>
+		<div class="nav-links bg-white  md:bg-transparent duration-500 md:static absolute z-20 md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5">
+			<ul class="flex flex-col md:flex-row md:items-center md:gap-[4vh] gap-8 text-brown-800 text-lg font-semibold">
+				<li class="group open-button" (click)="openMenu('men')">
+					<a class="cursor-pointer hover:opacity-50 flex px-3">
+						Men
+					</a>
+					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
+				</li>
+				<li class="group open-button" (click)="openMenu('women')">
+					<a class="cursor-pointer hover:opacity-50 flex px-3">
+						Women
+					</a>
+					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
+				</li>
+				<li class="group open-button block md:hidden" (click)="openMenu('women')">
+					<a class="cursor-pointer hover:opacity-50 flex px-3">
+						<ng-icon name="heroShoppingCartSolid" size="1.5rem" (click)="onToggleMenu($event)"></ng-icon>
+						<span>Cart</span>	
+					</a>
+					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
+				</li>
+				<li class="group open-button block md:hidden" (click)="openMenu('women')">
+					<a routerLink="login" class="cursor-pointer hover:opacity-50 p-3">
+						Login
+					</a>
+					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="flex items-center gap-3 text-brown-800 text-lg font-semibold">
+			<a class="hover:opacity-40 cursor-pointer p-3 text-base font-medium hidden md:flex items-center mr-3 "
+				(click)="navigateTo('cart')">
+				<ng-icon name="heroShoppingCartSolid" size="1.5rem" (click)="onToggleMenu($event)"></ng-icon>
+				<span>Cart</span>				
+			</a>
+			<a routerLink="login" class="hover:opacity-40 cursor-pointer p-3 text-base font-medium">
+				Login
+			</a>
+			<a routerLink="signup"
+				class="bg-primary rounded-lg py-3 px-7 text-base font-medium text-white hover:bg-opacity-90">
+				Sign Up
+			</a>
+			<!-- <ng-icon id="toggler" name="heroBars3Solid" size="2.5rem" color="red" strokeWidth="3px" (click)="onToggleMenu($event)"></ng-icon> -->
+			<div class="md:hidden">
+				<mat-icon id="toggler" name="menu" class="text-3xl cursor-pointer" (click)="onToggleMenu($event)">menu</mat-icon>
+			</div>
+			
+		</div>
+	</nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="fixed top-0 z-50 right-0 left-0 bg-[#69f0ae] text-gray-800">
-
-    <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
-        <div class="flex items-center">
-            <div class="mr-5">
-                <img class="w-8" src="" alt="GemStore">
-            </div>
-
-            <div class="">
-                <div class="flex items-center space-x-4">
-                    <a routerLink="/" class="text-grey-800 font-semibold text-lg">
-                        Shop Now
-                    </a>
-                    <div>
-                        <button class="open-button" (click)="openMenu('men')" mat-button>Men</button>
-                    </div>
-                    <div>
-                        <button class="open-button" (click)="openMenu('women')" mat-button>Women</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex items-center">
-
-            <button class="px-5" (click)="navigateTo('cart')" mat-icon-button>
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-
-            <button *ngIf="loggedIn" mat-raised-button type="" color="accent">LOGIN</button>
-
-            <div *ngIf="loggedIn" class="relative ml-3 flex items-center">
-                <div class="flex items-center space-x-5">
-
-                    <span class="font-bold text-lg">Ashoke</span>
-                    <button mat-button [matMenuTriggerFor]="profileMenu">
-                        <img class="h-5 w-5" src="assets/avatar/avatar1.webp" alt="User">
-                    </button>
-                    <mat-menu #profileMenu="matMenu">
-                        <button mat-menu-item>Order</button>
-                        <button mat-menu-item>Profile</button>
-                        <button mat-menu-item>Logout</button>
-                    </mat-menu>
-
-                </div>
-            </div>
-
-        </div>
-              
-    </div>
-
-    
-    <div *ngIf="isNavMenuOpen" class="absolute right-0 left-0 modal-container">
-        <app-nav-menu [selectedSection]="currentSection" />
-    </div>
-
-</div> -->
-
+	<div *ngIf="isNavMenuOpen" class="absolute z-50 right-0 left-0 modal-container">
+		<app-nav-menu [selectedSection]="currentSection" />
+	</div>
+</header>

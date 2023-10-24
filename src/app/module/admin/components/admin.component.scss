@@ -1,3 +1,11 @@
+
+
+// @layer components {
+//     .active {
+//         @apply bg-gradient-to-tr from-indigo-300 to-indigo-100 text-indigo-800;
+//     }
+// }
+
 .open{
     width: 100px !important;
 }
@@ -29,4 +37,19 @@
     border-radius: 50%;
     box-shadow: 35px -35px 0 10px #FFFFFF;
     pointer-events: none;
+}
+
+.search-input {
+	background: #feeae6;
+	color: #442C2E;
+	padding: 7px 15px;
+	border: 2px solid #ee9f8f;
+	border-radius: 50px;
+	width: 100%;
+}
+.search-input:focus {
+    outline: none !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 900 !important;
 }

@@ -7,6 +7,7 @@ import { oneDmArray } from 'src/Data/placeholder_data';
   styleUrls: ['./order-details.component.scss']
 })
 export class OrderDetailsComponent implements OnInit {
+  pageTitle = "Order Summary";
   orders: any;
   cart = [1,1,1];
 

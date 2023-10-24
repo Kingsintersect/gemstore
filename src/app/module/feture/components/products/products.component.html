@@ -1,6 +1,8 @@
+<app-page-hero [pageTitle]="pageTitle" />
+
 <div class="flex flex-col items-center">
     <main class="px-4 sm:px-6 max-w-7xl pb-10">
-        <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-40">
+        <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-10">
             <div class="my-5">
                 <app-bread-crump />
             </div>
@@ -11,11 +13,11 @@
                 <div>
                     <button mat-stroked-button [matMenuTriggerFor]="sortMenu">Sort</button>
                     <mat-menu #sortMenu>
-                        <button mat-menu-item>Most Popular</button>
-                        <button mat-menu-item>Best Rating</button>
+                        <button (click)="handleSingleSelectFilter('price_most_popular', 'sort')" mat-menu-item>Most Popular</button>
+                        <button (click)="handleSingleSelectFilter('price_best_rating', 'sort')" mat-menu-item>Best Rating</button>
                         <button mat-menu-item>Newest</button>
-                        <button mat-menu-item>Price: High-Low</button>
-                        <button mat-menu-item>Price: Low-High</button>
+                        <button (click)="handleSingleSelectFilter('price_high', 'sort')" mat-menu-item>Price: High-Low</button>
+                        <button (click)="handleSingleSelectFilter('price_low', 'sort')" mat-menu-item>Price: Low-High</button>
                     </mat-menu>
                 </div>
             </div>
@@ -61,7 +63,7 @@
                 <div class="lg:col-span-4">
                     <div class="grid grid-cols-3 gap-3">
                         <ng-container *ngFor="let item of menPants; let i = index">
-                            <app-product-card [product]="item" [index]="i+1" />
+                            <app-product-card [product]="item" />
                         </ng-container>
                     </div>
                 </div>

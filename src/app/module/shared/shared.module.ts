@@ -18,6 +18,9 @@ import { GenericButtonComponent } from './components/generic-button/generic-butt
 import { BreadCrumpComponent } from './components/bread-crump/bread-crump.component';
 import { DataSummaryComponent } from './admin/data-summary/data-summary.component';
 import { EmptyStateComponent } from './components/empty-state/empty-state.component';
+import { ProductCategoryTabletsComponent } from './components/product-category-tablets/product-category-tablets.component';
+import { PageHeroComponent } from './components/page-hero/page-hero.component';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 
 
 
@@ -38,6 +41,9 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
     BreadCrumpComponent,
     DataSummaryComponent,
     EmptyStateComponent,
+    ProductCategoryTabletsComponent,
+    PageHeroComponent,
+    SuccessModalComponent,
   ],
   imports: [
     CommonModule,
@@ -62,6 +68,8 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
     BreadCrumpComponent,
     DataSummaryComponent,
     EmptyStateComponent,
+    ProductCategoryTabletsComponent,
+    PageHeroComponent,
   ]
 })
 export class SharedModule { }

@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
 export class ProductCardComponent {
 
   @Input() product: any;
-  @Input() index: any;
 
   constructor(private router: Router){}
 
   navigate(){
-    console.log(this.product)
-    this.router.navigate([`product-details/${this.index}`])
+    this.router.navigate([`product-details/${this.product.id}`])
   }
 }

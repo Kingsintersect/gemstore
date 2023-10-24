@@ -7,22 +7,45 @@ export interface menuSection {
 export const adminMenu = [
     {
       name: 'DashBoard',
-      href: "admin/dashboard",
-      icon: "home",
+      href: "dashboard",
+      icon: "heroChartBarSquare",
     },
     {
       name: 'Orders',
-      href: "admin/orders",
-      icon: "home",
+      href: "orders",
+      icon: "heroCircleStack",
+    },
+    {
+      name: 'All Products',
+      href: "products",
+      icon: "heroListBullet",
     },
     {
       name: 'New Product',
-      href: "admin/create/product",
-      icon: "home",
+      href: "product/create",
+      icon: "heroDocumentPlus",
+    },
+    {
+      name: 'New Messages',
+      href: "new/messages",
+      icon: "heroEnvelope",
     },
     {
       name: 'Customers',
-      href: "admin/customers",
-      icon: "person",
+      href: "customers",
+      icon: "heroUserGroup",
+    },
+  ];
+
+export const adminGeneralMenu = [
+    {
+      name: 'Settings',
+      href: "settings",
+      icon: "heroCog6Tooth",
+    },
+    {
+      name: 'Help',
+      href: "help",
+      icon: "heroQuestionMarkCircle",
     },
   ];

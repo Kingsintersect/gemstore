@@ -3,7 +3,7 @@
 
         <a 
         *ngFor="let item of bread; let last=last"
-        class="text-slate-500 hover:text-slate-600 flex items-center" href="{{item.link}}">
+        class=" hover:text-slate-300 flex items-center" href="{{item.link}}">
             {{item.name}} 
             <div aria-hidden="true" class="select-none text-slate-400 mx-2" *ngIf="!last">/</div>
         </a>

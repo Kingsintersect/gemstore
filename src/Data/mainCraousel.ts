@@ -1,22 +1,22 @@
 export const homeCarouselData = [
     {
-        image: "assets/carousel/cr1.jpg",
+        image: "assets/resource/slide2.jpg",
         path: "/women/clothing/lengha_choli"
     },
     {
-        image: "assets/carousel/cr2.jpg",
+        image: "assets/resource/bg001.jpg",
         path: "/women/clothing/women_dress"
     },
     {
-        image: "assets/carousel/cr3.jpg",
+        image: "assets/resource/slid1.jpg",
         path: "/women/clothing/women_dress"
     },
     {
-        image: "assets/carousel/cr4.png",
+        image: "assets/resource/bg1.jpg",
         path: "/women/clothing/women_saree"
     },
     {
-        image: "assets/carousel/cr5.webp",
+        image: "assets/resource/bg0.jpg",
         path: "/women/clothing/women_saree"
     },
 ]

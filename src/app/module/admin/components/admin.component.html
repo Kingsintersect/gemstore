@@ -1,26 +1,172 @@
-<!-- <p class="py-10">admin works!</p> -->
 
-<div class="flex my-tetiary p-6">
+<div class="flex">
 
-    <div id="menu" class="h-screen flex-none w-72 hidden md:block">
-        <div class="h-full rounded-2xl bg-white p-6 pr-0 mr-5">
-            <h2 class="mb-9"><mat-icon>home</mat-icon> GEMSTORE</h2>
-            <mat-divider></mat-divider>
-            <ul class="my-3">
-                <li class="menu-link " *ngFor="let menu of menuList">
-                    <a href="#" class="flex items-center justify-around w-full px-3 py-1 my-2 cursor-pointer">
-                        <div class="flex-none w-10">
-                            <mat-icon>{{menu.icon}}</mat-icon> 
-                        </div>                        
-                        <div class="grow">{{menu.name}}</div>
-                    </a>                        
+    <div id="menu" class="min-h-screen transition-all duration-700  font-Roboto"
+    [ngClass]="{
+        '': expanded,
+        'w-20': !expanded,
+    }">
+        <nav class="h-full flex flex-col bg-white border-r shadow-sm transition-all">
+            <div class="p-4 pb-2 flex justify-between items-centerl">
+                <a routerLink="/" class="block">
+                    <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo" class="overflow-hidden transition-all"
+                    [ngClass]="{
+                        'w-32': expanded,
+                        'w-0': !expanded,
+                    }"
+                    />
+                </a>
+                <button (click)="setExpand($event)" class="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100">
+                    <ng-icon name="heroChevronLeft" *ngIf="expanded"></ng-icon>
+                    <ng-icon name="heroChevronRight" *ngIf="!expanded"></ng-icon>
+                </button>
+            </div>
+
+            <ul class="hidden lg:block flex-1 px-3 mt-7">
+                <li *ngFor="let menu of menuList; let i = index" class="relative py-2 px-3 my-1 font-medium font-Roboto text-base rounded-md cursor-pointer transition-colors group 
+                    {{active=== true? 'bg-gradient-to-tr from-primary-300 to-primary-100 text-primary-800': 'hover:bg-primary-100 hover:text-accent-800 text-gray-600'}}"
+                >
+                    <a routerLink="{{menu.href}}" class="flex items-center w-full h-full">
+                        <ng-icon name="{{menu.icon}}"></ng-icon>
+                        <span class="overflow-hidden transition-all {{expanded? 'w-52 ml-3': 'w-0'}}">{{menu.name}}</span>
+
+                        <div *ngIf="i==2" class="absolute right-2 w-2 h-2 rounded bg-primary-400 {{expanded? '': 'top-1'}}"></div>
+                        <div *ngIf="!expanded" class="absolute z-50 rounded-md px-2 py-1 ml-6 bg-primary-100 text-primary-800 text-sm left-full  invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0">{{menu.name}}</div>
+                    </a>
+                    <!-- <div class=" ">{{menu.name}}</div> -->
                 </li>
-            </ul>   
-        </div>               
+
+                <li class="transition-all duration-500">
+                    <button type="button" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales" aria-expanded="false">
+                        <ng-icon name="heroUser"></ng-icon>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Sales</span>
+                        <svg aria-hidden="true" class="w-6 h-6" fill="expandedentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <ul id="dropdown-sales" class="py-2 space-y-2 hidden">
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
+                            </li>
+                    </ul>
+                </li>
+
+                <div class="w-full my-5"><hr></div>
+
+                <li *ngFor="let menu of adminGeneralMenu; let i = index" class="relative py-2 px-3 my-1 font-medium font-Roboto text-base rounded-md cursor-pointer transition-colors 
+                    {{active=== true? 'bg-gradient-to-tr from-primary-300 to-primary-100 text-primary-800': 'hover:bg-primary-100 text-gray-600'}}"
+                >
+                    <a routerLink="{{menu.href}}" class="flex items-center w-full h-full">
+                        <ng-icon name="{{menu.icon}}"></ng-icon>
+                        <span class="overflow-hidden transition-all {{expanded? 'w-52 ml-3': 'w-0'}}">{{menu.name}}</span>
+
+                        <div *ngIf="i==1" class="absolute right-2 w-2 h-2 rounded bg-primary-400 {{expanded? '': 'top-1'}}"></div>
+                        <div *ngIf="!expanded" class="absolute z-50 rounded-md px-2 py-1 ml-6 bg-primary-100 text-primary-800 text-smleft-full  invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-7">{{menu.name}}</div>
+                    </a>                    
+                </li>
+            </ul>
+
+            <!-- <ul id="mobile-nav" class="block lg:hidden flex-1 px-3 mt-7">
+                <li *ngFor="let menu of menuList; let i = index" class="relative py-2 px-3 my-1 font-medium font-readex text-base rounded-md cursor-pointer transition-colors group 
+                    {{active=== true? 'bg-gradient-to-tr from-primary-300 to-primary-100 text-primary-800': 'hover:bg-primary-100 text-gray-600'}}"
+                >
+                    <a href="{{menu.href}}" class="flex items-center w-full h-full">
+                        <ng-icon name="{{menu.icon}}"></ng-icon>
+                        <span class="overflow-hidden transition-all {{expanded? 'w-52 ml-3': 'w-0'}}">{{menu.name}}</span>
+
+                        <div *ngIf="i==2" class="absolute right-2 w-2 h-2 rounded bg-primary-400 {{expanded? '': 'top-1'}}"></div>
+                        <div *ngIf="!expanded" class="absolute z-50 rounded-md px-2 py-1 ml-6 bg-primary-100 text-primary-800 text-sm left-full  invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0">{{menu.name}}</div>
+                    </a>
+                </li>
+
+                <li class="transition-all duration-500">
+                    <button type="button" class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-sales" data-collapse-toggle="dropdown-sales" aria-expanded="false">
+                        <ng-icon name="heroUser"></ng-icon>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Sales</span>
+                        <svg aria-hidden="true" class="w-6 h-6" fill="expandedentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <ul id="dropdown-sales" class="py-2 space-y-2 hidden">
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
+                            </li>
+                    </ul>
+                </li>
+
+                <div class="w-full my-5"><hr></div>
+
+                <li *ngFor="let menu of adminGeneralMenu; let i = index" class="relative py-2 px-3 my-1 font-medium font-readex text-base rounded-md cursor-pointer transition-colors 
+                    {{active=== true? 'bg-gradient-to-tr from-primary-300 to-primary-100 text-primary-800': 'hover:bg-primary-100 text-gray-600'}}"
+                >
+                    <a href="{{menu.href}}" class="flex items-center w-full h-full">
+                        <ng-icon name="{{menu.icon}}"></ng-icon>
+                        <span class="overflow-hidden transition-all {{expanded? 'w-52 ml-3': 'w-0'}}">{{menu.name}}</span>
+
+                        <div *ngIf="i==1" class="absolute right-2 w-2 h-2 rounded bg-primary-400 {{expanded? '': 'top-1'}}"></div>
+                        <div *ngIf="!expanded" class="absolute z-50 rounded-md px-2 py-1 ml-6 bg-primary-100 text-primary-800 text-smleft-full  invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-7">{{menu.name}}</div>
+                    </a>                    
+                </li>
+            </ul> -->
+
+            <div class="absolute w-[20%] bottom-0 left-0 right-0 z-20 border-t flex p-3">
+                <img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo" class="w-10" />
+                <div class="flex justify-between items-center overflow-hidden transition-all"
+                    [ngClass]="{
+                        'w-52 ml-3': expanded,
+                        'w-0': !expanded,
+                    }"
+                >
+                    <div class="leading-4">
+                        <h4 class="font-semibold">Solomon King</h4>
+                        <span class="text-xs text-gray-600" [ngClass]="{'top-2': expanded}">solomonking@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
 
-    <div class="grow">
-        <router-outlet />
+    <div class="grow z-10">
+        <div class="header">
+            <div class="flex items-center justify-between py-4 px-5 rounded-2xl bg-white">
+                <div class="cursor-pointer border px-3 py-1"><mat-icon>menu</mat-icon></div>
+                <div class="search w-[35%]">
+                    <form class="example-form">
+                        <div class="example-full-width relative">
+                            <input name="search" class="search-input" id="search" type="text" placeholder="Search">
+                            <mat-icon class="absolute right-3 top-2" matSuffix>search</mat-icon>
+                        </div>
+                    </form>          
+                </div>
+                <div class="search w-[30%]">
+                    <input class="w-[70px]" matInput [matDatepicker]="picker">
+                    <mat-datepicker #picker></mat-datepicker>
+                    <button mat-flat-button (click)="picker.open()">Date</button>
+                </div>
+                <div class="search">
+                    <mat-chip-listbox aria-label="Dog selection">
+                        <mat-chip>
+                        <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
+                        Dog one
+                        </mat-chip>
+                        <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
+                    </mat-chip-listbox>
+                </div>
+            </div>    
+        </div>
+        <div class="px-5 pb-10">
+            <div class="min-h-screen bg-primary-50 p-7 rounded-3xl">
+                <router-outlet />
+            </div>            
+        </div>
     </div>
 
 </div>

@@ -63,8 +63,4 @@ export const cartReducer = createReducer(
         cartItems: state.cartItems.map((item) => item.id === action.payload.id ? action.payload : item),
     })),
 
-    
-
-     
-
 )

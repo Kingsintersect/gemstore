@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   
   currentSection:any;
   isNavMenuOpen:any;
-  isMobilemenu:boolean = false;
+  isMobilemenu = false;
+  navbarOpen = false;
 
   userProfile: any;
   subscriptions: Subscription = new Subscription;
@@ -44,6 +45,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleMobileMenu() {
     this.isMobilemenu = !this.isMobilemenu;
+    this.navbarOpen = !this.navbarOpen;
+  }
+  onToggleMenu(e: any){
+    let nav_links = document.querySelector(".nav-links");
+    let node =  document.querySelector("#toggler")!;
+    node.innerHTML =( node.innerHTML === "menu") ? "close": "menu";
+    console.log(nav_links!.classList)
+    nav_links!.classList.toggle("top-[9%]");
   }
 
   openMenu(menuOption:any){

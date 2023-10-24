@@ -21,7 +21,7 @@ export class MainCarouselComponent implements OnInit {
   autoPlay(){
     setInterval(()=>{
       this.nextSlide();
-    }, 2000);
+    }, 3000);
   }
 
   nextSlide(){

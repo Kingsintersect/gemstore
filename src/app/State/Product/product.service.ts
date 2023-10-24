@@ -54,7 +54,7 @@ export class ProductService{
 
         const headers = this.getHeader();
 
-        return this.http.get(`${this.API_BASE_URL}/api/products`, {headers, params}).pipe(
+        return this.http.get(`${this.API_BASE_URL}/products`, {headers, params}).pipe(
             map((data) => {
                 console.log("product Data", data);
                 return findProductByCategorySuccess({payload:data})
@@ -72,7 +72,7 @@ export class ProductService{
 
         const headers = this.getHeader();
 
-        return this.http.get(`${this.API_BASE_URL}/api/products/id${productId}`, {headers}).pipe(
+        return this.http.get(`${this.API_BASE_URL}/products/id${productId}`, {headers}).pipe(
             map((data: any) => {
                 console.log("product details", data);
                 return findProductByIdSuccess({payload:data})

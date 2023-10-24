@@ -11,6 +11,6 @@ export class PaymentSuccessComponent {
   constructor(private router: Router){}
 
   goTo(){
-    this.router.navigate(['order/5'])
+    this.router.navigate(['account/orders'])
   }
 }

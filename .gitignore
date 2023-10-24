@@ -10,6 +10,8 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+/z_git_ignore
+/src/app/module/default/components/
 
 # IDEs and editors
 .idea/

@@ -11,6 +11,7 @@ const routes: Routes = [
   { 
     path:"", component: AdminComponent, children: [
       { path:"", component: DashboardComponent },
+      { path:"dashboard", component: DashboardComponent },
       { path:"products", component: AdminProductsComponent },
       { path:"orders", component: AdminOrdersComponent },
       { path:"customers", component: CustomersComponent },

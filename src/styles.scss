@@ -1,7 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Readex+Pro:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
+
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body{
+        font-family: 'Poppins', 'Readex Pro', 'Roboto', 'calibri', sans-serif;
+    }
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+      }
+}
+
+@layer components {
+    .bg-primary{
+        background-color: #d6420c !important;
+        @apply bg-[#d6420c] text-base text-white
+    }
+    .bg-secondary{
+        background-color: #0EA0D5 !important;
+        @apply bg-[#0EA0D5] text-base text-white
+    }
+    .bg-accent{
+        background-color: #D50C3C !important;
+        @apply bg-[#D50C3C] text-base text-white
+    }
+    .btn-primary {
+        @apply py-2 px-4 bg-[#d6420c] text-white font-semibold rounded-md shadow-md hover:bg-[#fa7240] focus:outline-none focus:ring-2 focus:ring-[#d6420c] focus:ring-offset-1 focus:ring-opacity-75;
+    }
+    .btn-secondary {
+        @apply py-2 px-4 bg-[#0EA0D5] text-white font-semibold rounded-md shadow-md hover:bg-[#0291c5] focus:outline-none focus:ring-2 focus:ring-[#0EA0D5] focus:ring-offset-1 focus:ring-opacity-75;
+    }
+    .btn-accent {
+        @apply py-2 px-4 bg-[#D50C3C] text-white font-semibold rounded-md shadow-md hover:bg-[#fa3c7b] focus:outline-none focus:ring-2 focus:ring-[#D50C3C] focus:ring-offset-1 focus:ring-opacity-75;
+    }
+    .btn-danger {
+        @apply py-2 px-4 bg-red-700 text-white font-semibold rounded-md shadow-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-1 focus:ring-opacity-75;
+    }
+    
+    .cs-btn {
+        position: relative;
+        margin: 0;
+        border: 3px solid #e5e5e5;
+        overflow: visible;
+        font: inherit;
+        color: inherit;
+        text-transform: none;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 20px;
+        vertical-align: middle;
+        font-size: .875rem;
+        line-height: 38px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: .1s ease-in-out;
+        transition-property: all;
+    }
+    .cs-btn:hover, .cs-btn:focus {
+        text-decoration: none;
+        color: white;
+    }
+    .cs-btn:not(:disabled) {
+        cursor: pointer;
+    }
+    // .cs-btn::after {
+    //     background-color: gray;
+    // }
+    .cs-btn::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 0%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: gray;
+        -webkit-transition: 700ms cubic-bezier(0.17, 0.67, 0, 1.01);
+        -o-transition: 700ms cubic-bezier(0.17, 0.67, 0, 1.01);
+        transition: 700ms cubic-bezier(0.17, 0.67, 0, 1.01);
+    }
+    .cs-btn.cs-btn-default:hover, .cs-btn.cs-btn-default:focus {
+        // border-color: orange;
+        color: #fff !important;
+    }
+    .cs-btn.cs-btn-default {
+        border-color: orange !important;
+        color: #101010;
+        position: relative;
+        z-index: 1;
+    }
+    .cs-btn.cs-btn-primary:hover, .cs-btn.cs-btn-primary:focus {
+        // border-color: blueviolet;
+        color: #fff !important;
+    }
+    .cs-btn.cs-btn-primary {
+        border-color: blueviolet !important;
+        color: #101010;
+        position: relative;
+        z-index: 1;
+    }
+
+    
+    //   ANIMATIONS
+    .cs-btn:hover::after, .cs-btn:focus::after {
+        width: 100%;
+    }    
+    .cs-btn.cs-btn-default::after {
+        background-color: orange;
+    }
+    .cs-btn.cs-btn-primary::after {
+        background-color: blueviolet;
+    }
+
+    // CARDS
+    .card {
+        background-color: theme('colors.white');
+        border-radius: theme('borderRadius.lg');
+        padding: theme('spacing.6');
+        box-shadow: theme('boxShadow.xl');
+    }
+}
 
 // GLOBAL STYLES
 $--blue:    #5465FF;    // Neo Blue
@@ -14,7 +141,7 @@ $--primary-50: #FEEAE6; // 50
 
 // ANOTHER THEME
 $--primary: #FEDBD0; // 100
-$--complementary: #FFA78A; // 100
+$--complementary: #FFA78A; // 200
 $--secondary: #442C2E; // 900
 $--accent: #EC4E20;
 

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent {
+  pageTitle = "Checkout Form";
 
   cart = [1, 1, 1];
 
