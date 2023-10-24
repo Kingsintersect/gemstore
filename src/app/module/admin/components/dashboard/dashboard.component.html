@@ -1,28 +1,30 @@
-<!-- <div class="flex items-center justify-between py-3 px-5 rounded-2xl bg-white">
-    <div class="cursor-pointer border px-3 py-1" (click)="toggleMenu()"><mat-icon>menu</mat-icon></div>
-    <div class="search w-[35%]">
-        <form class="example-form">
-            <div class="example-full-width relative">
-                <input name="search" class="search-input" id="search" type="text" placeholder="Search">
-                <mat-icon class="absolute right-3 top-2" matSuffix>search</mat-icon>
-            </div>
-          </form>          
+
+<div class="my-5 grid grid-cols-2 gap-6">
+    <div class="col-span-2 md:col-span-1">
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Productivity</h4>
+            <app-area-chart />
+        </div>
     </div>
-    <div class="search w-[30%]">
-        <input class="w-[70px]" matInput [matDatepicker]="picker">
-        <mat-datepicker #picker></mat-datepicker>
-        <button mat-flat-button (click)="picker.open()">Date</button>
+    <div class="col-span-2 md:col-span-1">
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Projects in Progress</h4>
+            <app-column-chart />
+        </div>
     </div>
-    <div class="search">
-        <mat-chip-listbox aria-label="Dog selection">
-            <mat-chip>
-              <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
-              Dog one
-            </mat-chip>
-            <mat-chip-option color="accent" selected>Accent fish</mat-chip-option>
-          </mat-chip-listbox>
+    <div class="col-span-2 md:col-span-1">
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Productivity</h4>
+            <app-donut-chart />
+        </div>
     </div>
-</div> -->
+    <div class="col-span-2 md:col-span-1">
+        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
+            <h4>Projects in Progress</h4>
+            <app-pie-chart />
+        </div>
+    </div>
+</div>
 
 <div class="my-7 bg-gray-100 border rounded-lg sm:px-10 sm:py-10 sm:max-w[80rem] sm:mx-auto">
     <div>
@@ -110,13 +112,3 @@
 </div>
 
 
-<div class="my-5">
-    <div class="columns-1 md:columns-2">
-        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
-            <h4>Productivity</h4>
-        </div>
-        <div class="py-5 px-10 bg-white rounded-2xl my-5 md:my-0">
-            <h4>Projects in Progress</h4>
-        </div>
-    </div>
-</div>

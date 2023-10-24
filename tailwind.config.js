@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins'],
         readex: ['Readex'],
+        readex: ['Roboto'],
       },
       colors: {
         brown: {
@@ -66,11 +67,8 @@ module.exports = {
   },
   plugins: [
     require("tailgrids/plugin"),
-    require('flowbite/plugin'),
-    // require('tailwindcss/aspect-ratio'),
+    require('flowbite/plugin')({
+      charts: true,
+  }),
   ],
 }
-
-// :root {
-//   --blue: blue
-// }

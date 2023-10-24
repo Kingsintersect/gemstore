@@ -11,6 +11,10 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { SharedModule } from "../shared/shared.module";
+import { AreaChartComponent } from './shared/area-chart/area-chart.component';
+import { ColumnChartComponent } from './shared/column-chart/column-chart.component';
+import { DonutChartComponent } from './shared/donut-chart/donut-chart.component';
+import { PieChartComponent } from './shared/pie-chart/pie-chart.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { SharedModule } from "../shared/shared.module";
         AdminProductsComponent,
         AdminOrdersComponent,
         CustomersComponent,
-        CreateProductComponent
+        CreateProductComponent,
+        AreaChartComponent,
+        ColumnChartComponent,
+        DonutChartComponent,
+        PieChartComponent
     ],
     imports: [
         CommonModule,
