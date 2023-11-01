@@ -1,89 +1,78 @@
-<main class="relative mx-auto my-20 w-full max-w-md px-4   sm:px-6 md:px-8 lg:px-14 lg:max-w-lg">
-    <div class="border border-green-400 rounded-lg text-center grid grid-cols-1 p-10">
-        <div class="col-span-1 mb-10">
-            <ng-icon name="heroCheckCircle" size="5.5rem" color="green" strokeWidth="1px"></ng-icon>
+<main>
+
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                alt="Your Company">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Register New Account</h2>
         </div>
-        <div class="grid grid-cols-1">
-            <div class="grid-cols-1">
-                <form [formGroup]="registerForm" (ngSubmit)="handleSignin()">
-                    <div class="space-y-12">
-                        <div class="border-b border-gray-900/10 pb-12">
 
-                            <div class="text-xl leading-7 text-gray-600">Sign In</div>
-                            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8">
-                                <div class="">
-                                    <label for="firstName" class="block text-lg font-normal leading-6 text-gray-600">First
-                                        Name</label>
-                                    <div class="mt-2">
-                                        <input id="firstName" formControlName="firstName" type="firstName" autocomplete="firstName"
-                                        required
-                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form [formGroup]="registerForm" (ngSubmit)="handleSignup()" class="space-y-6 mb-5" >
+                <div>
+                    <label for="firstName" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                    <div class="mt-2">
+                        <input id="firstName" formControlName="firstName" type="firstName" autocomplete="firstName"
+                        required
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
-                                        <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">First name is required!</mat-error>
-                                    </div>
-                                </div>
+                            <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">First name is required!</mat-error>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="firstName" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                    <div class="mt-2">
+                        <input id="lastName" formControlName="lastName" type="lastName" autocomplete="lastName"
+                        required
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
-                                <div class="">
-                                    <label for="lastName" class="block text-lg font-normal leading-6 text-gray-600">Last
-                                        Name</label>
-                                    <div class="mt-2">
-                                        <input id="lastName" formControlName="lastName" type="lastName" autocomplete="lastName"
-                                        required
-                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
+                            <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">Last name is required!</mat-error>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                    <div class="mt-2">
+                        <input id="email" formControlName="email" type="email" autocomplete="email"
+                        required
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
-                                        <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">Last name is required!</mat-error>
-                                    </div>
-                                </div>
+                            <mat-error *ngIf="registerForm.controls['email'].hasError('required')">Email is required!</mat-error>
+                            <mat-error *ngIf="registerForm.controls['email'].hasError('email')">Enter a valid Email address!</mat-error>
+                    </div>
+                </div>
 
-                                <div class="">
-                                    <label for="email" class="block text-lg font-normal leading-6 text-gray-600">Email
-                                        address</label>
-                                    <div class="mt-2">
-                                        <input id="email" formControlName="email" type="email" autocomplete="email"
-                                        required
-                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
-
-                                        <mat-error *ngIf="registerForm.controls['email'].hasError('required')">Email is required!</mat-error>
-                                        <mat-error *ngIf="registerForm.controls['email'].hasError('email')">Enter a valid Email address!</mat-error>
-                                    </div>
-                                </div>
-
-                                <div class="">
-                                    <label for="password" class="block text-lg font-normal leading-6 text-gray-600">Password</label>
-                                    <div class="mt-2">
-                                        <input id="password" formControlName="password" type="password" autocomplete="password"
-                                        required
-                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
-
-                                        <mat-error *ngIf="registerForm.controls['password'].hasError('required')">Password is required!</mat-error>
-                                        <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">Password should at least be 8 characters long!</mat-error>
-                                    </div>
-                                </div>
-
-                                <div class="">
-                                    <label for="confirmPassword" class="block text-lg font-normal leading-6 text-gray-600">Confirm Password</label>
-                                    <div class="mt-2">
-                                        <input id="confirmPassword" formControlName="confirmPassword" type="password" autocomplete="confirmPassword"
-                                        required
-                                            class="block w-full rounded-md border-0 py-2.5 px-5  text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-lg leading-6">
-
-                                        <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required')">confirmPassword is required!</mat-error>
-                                    </div>
-                                </div>
-
-                                <div class="px-10">
-                                    <button mat-raised-button style="padding: 1.7rem;" class="text-lg mt-8 p-28 px-10 w-full cursor-pointer my-accent">REGISTER</button>
-                                </div>
-
-                                <div class="">
-                                    <span class="">If you have an account ? </span>
-                                    <button (click)="changeTamplate()" mat-button>LOGIN</button>
-                                </div>
-                            </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                        <div class="text-sm">
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="mt-2">
+                        <input id="password" formControlName="password" type="password" autocomplete="current-password" required
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+
+                            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">Password is required!</mat-error>
+                            <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">Password should at least be 8 characters long!</mat-error>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+                        in</button>
+                </div>
+            </form>
+
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Dont have an account?
+                <a (click)="changeTamplate()" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 inline-block ml-3 cursor-pointer">LOGIN</a>
+            </p>
         </div>
     </div>
+
 </main>
+
+

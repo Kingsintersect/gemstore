@@ -66,6 +66,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require("tailgrids/plugin"),
     require('flowbite/plugin')({
       charts: true,

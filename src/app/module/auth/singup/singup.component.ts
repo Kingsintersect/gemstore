@@ -25,7 +25,7 @@ export class SingupComponent {
     confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
   });
 
-  handleSignin(): void {
+  handleSignup(): void {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
       this.authService.register(this.registerForm.value);
