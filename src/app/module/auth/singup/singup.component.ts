@@ -27,7 +27,7 @@ export class SingupComponent {
 
   handleSignup(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      // console.log(this.registerForm.value);
       this.authService.register(this.registerForm.value);
     }
   }

@@ -10,7 +10,7 @@ import { loginFailure, loginSuccess, registerFailure, registerSuccess } from "./
 })
 
 export class AuthService{
-    private apiUrl = BASE_API_URL+"/auth";
+    private apiUrl = BASE_API_URL+"/api/auth";
 
     constructor(private http: HttpClient, private store: Store){}
 
@@ -34,9 +34,10 @@ export class AuthService{
     }
 
     register(user: any){
+        
         return this.http.post(`${this.apiUrl}/signup`, user).pipe(
             map((user: any) => {
-                console.log(user);
+                console.log(user);console.log("here", user)
                 if(user.jwt){
                     localStorage.setItem("jwt", user.jwt);
                 }
