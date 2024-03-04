@@ -1,19 +1,16 @@
 import { createReducer, on } from "@ngrx/store";
-import { getUserProfile, getUserProfileFailure, getUserProfileSuccess, logOutSuccess } from "./user.actions";
-
-const initialSate = {
-    userProfile: null,
-    loading: false,
-    error: null
-}
-
-export const userReducer = createReducer(
-    initialSate,
-    on(getUserProfile, (state) => ({...state, loading:true, error:null})),
-    on(getUserProfileSuccess, (state, {userProfile}) => ({...state, loading:false, error:null, userProfile})),
-    on(getUserProfileFailure, (state, {error}) => ({...state, loading:true, error:error})),
+import { getUserProfile, getUserProfileFailure, getUserProfileSuccess, logOutSuccess } from "./User.Actions";
+import { UserState } from "./User.state";
 
 
-    on(logOutSuccess, () => initialSate),
+
+export const UserReducer = createReducer(
+    UserState,
+
+    on(getUserProfile, (state) => ({ ...state, loading: true, error: null })),
+    on(getUserProfileSuccess, (state, action) => ({ ...state, loading: false, error: null, userProfile: action.userProfile })),
+    on(getUserProfileFailure, (state, { error }) => ({ ...state, loading: true, error: error })),
+
+    on(logOutSuccess, () => UserState),
 
 )

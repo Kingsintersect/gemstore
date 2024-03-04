@@ -12,37 +12,21 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'gemstore';
-
+  title = 'Gemstore';
   navbarOpen = true;
-  
   userProfile: any;
-  subscriptions: Subscription = new Subscription;
 
-  constructor(
-    private router: Router, 
-    private userService: UserService, 
-    private cartService: CartService, 
-    private store: Store<AppState>,
-  ){}
+  constructor(private cartService: CartService, private store: Store<AppState>,) { }
 
   ngOnInit(): void {
     // Flowbite
     initFlowbite();
-    
-    if(localStorage.getItem("jwt")) {
-      this.userService.getUserProfile(),
-      this.cartService.getCart();
-    }
 
-    this.subscriptions = this.store.pipe(select((store) => store.auth)).subscribe((user) => {
-      this.userService.getUserProfile();
-      console.log('store', this.store);
-    })
-  }
+    // if (localStorage.getItem("access_token")) {
+    //   this.cartService.getCart();
+    // }
 
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 }

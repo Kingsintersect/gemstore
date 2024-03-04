@@ -1,30 +1,26 @@
-
-
-<header class=" z-40 w-full bg-black bg-opacity-10">
+<header class="z-40 w-full bg-black bg-opacity-10">
 	<nav class="flex justify-between items-center w-[92%] mx-auto">
 		<div class="z-30">
 			<a routerLink="/" class="block w-full py-5">
 				<img src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg" alt="logo" class="w-full" />
 			</a>
 		</div>
-		<div class="nav-links bg-white  md:bg-transparent duration-500 md:static absolute z-20 md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5">
-			<ul class="flex flex-col md:flex-row md:items-center md:gap-[4vh] gap-8 text-brown-800 text-lg font-semibold">
+		<div
+			class="nav-links bg-white md:bg-transparent duration-500 md:static absolute z-20 md:min-h-fit min-h-[30vh] left-0 md:w-auto w-full top-[-100%] flex items-center px-5">
+			<ul
+				class="flex flex-col md:flex-row md:items-center md:gap-[4vh] gap-8 text-brown-800 text-lg font-semibold">
 				<li class="group open-button" (click)="openMenu('men')">
-					<a class="cursor-pointer hover:opacity-50 flex px-3">
-						Men
-					</a>
+					<a class="cursor-pointer hover:opacity-50 flex px-3"> Men </a>
 					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
 				</li>
 				<li class="group open-button" (click)="openMenu('women')">
-					<a class="cursor-pointer hover:opacity-50 flex px-3">
-						Women
-					</a>
+					<a class="cursor-pointer hover:opacity-50 flex px-3"> Women </a>
 					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
 				</li>
 				<li class="group open-button block md:hidden" (click)="openMenu('women')">
 					<a class="cursor-pointer hover:opacity-50 flex px-3">
 						<ng-icon name="heroShoppingCartSolid" size="1.5rem" (click)="onToggleMenu($event)"></ng-icon>
-						<span>Cart</span>	
+						<span>Cart</span>
 					</a>
 					<div class="w-full h-1 bg-transparent group-hover:bg-gray-500 transition-colors duration-500"></div>
 				</li>
@@ -37,23 +33,35 @@
 			</ul>
 		</div>
 		<div class="flex items-center gap-3 text-brown-800 text-lg font-semibold">
-			<a class="hover:opacity-40 cursor-pointer p-3 text-base font-medium hidden md:flex items-center mr-3 "
+			<a class="hover:opacity-40 cursor-pointer p-3 text-base font-medium hidden md:flex items-center"
 				(click)="navigateTo('cart')">
 				<ng-icon name="heroShoppingCartSolid" size="1.5rem" (click)="onToggleMenu($event)"></ng-icon>
-				<span>Cart</span>				
+				<span>Cart</span>
 			</a>
-			<a routerLink="login" class="hover:opacity-40 cursor-pointer p-3 text-base font-medium">
+			<a routerLink="login" *ngIf="!userProfile"
+				class="hover:opacity-40 cursor-pointer p-3 text-base font-medium">
 				Login
 			</a>
-			<a routerLink="signup"
-				class="bg-primary rounded-lg py-3 px-7 text-base font-medium text-white hover:bg-opacity-90">
-				Sign Up
+			<a *ngIf="userProfile"
+				class="hover:opacity-40 cursor-pointer p-3 text-base font-medium hidden md:flex items-center"
+				(click)="navigateTo('user/profile')">
+				{{ userProfile.firstName }}
 			</a>
+			<a *ngIf="userProfile"
+				class="p-3 text-base font-medium hover:opacity-40 cursor-pointer hidden md:flex items-center align-text-bottom"
+				[matMenuTriggerFor]="menu">
+				<span><ng-icon name="heroUser" color="red"></ng-icon></span>
+			</a>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item (click)="navigateTo('account/orders')">My Orders</button>
+				<button mat-menu-item (click)="navigateTo('/user/profile')">My Profile</button>
+				<button mat-menu-item (click)="handleLogout()">Logout</button>
+			</mat-menu>
 			<!-- <ng-icon id="toggler" name="heroBars3Solid" size="2.5rem" color="red" strokeWidth="3px" (click)="onToggleMenu($event)"></ng-icon> -->
 			<div class="md:hidden">
-				<mat-icon id="toggler" name="menu" class="text-3xl cursor-pointer" (click)="onToggleMenu($event)">menu</mat-icon>
+				<mat-icon id="toggler" name="menu" class="text-3xl cursor-pointer"
+					(click)="onToggleMenu($event)">menu</mat-icon>
 			</div>
-			
 		</div>
 	</nav>
 

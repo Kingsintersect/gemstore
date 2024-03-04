@@ -9,8 +9,8 @@ export class AuthComponent {
 
   isLoggedIn = true;
 
-  changeTemplate = ()=>{
-    this.isLoggedIn=!this.isLoggedIn;
+  changeTemplate = () => {
+    this.isLoggedIn = !this.isLoggedIn;
   }
 
 }

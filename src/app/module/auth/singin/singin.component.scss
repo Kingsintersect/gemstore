@@ -1,0 +1,12 @@
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+}
+
+mat-progress-bar{
+    // position: absolute;
+    // top: 50%;
+    z-index: 9999;
+}

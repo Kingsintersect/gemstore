@@ -10,15 +10,15 @@ import { addItemToCartFailure, addItemToCartSuccess, getCartFailure, getCartSucc
     providedIn: 'root',
 })
 
-export class CartService{
-    private API_BASE_URL = BASE_API_URL+"/api";
+export class CartService {
+    private API_BASE_URL = BASE_API_URL + "/api";
 
     constructor(
-        private http: HttpClient, 
+        private http: HttpClient,
         private store: Store,
         private router: Router,
         private route: ActivatedRoute
-    ){};  
+    ) { };
 
     addItemToCart(reqData: any) {
         const url = `${this.API_BASE_URL}/cart/add`;
@@ -26,37 +26,37 @@ export class CartService{
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         })
-        
+
         return this.http
-        .put(url, reqData, { headers })
-        .pipe(
-            map((data: any) => {
-                console.log("added item", data);
-                return addItemToCartSuccess({payload:data})
-            }),
-            catchError((error:any) => {
-                return of(addItemToCartFailure(error.response&& error.response.data.message 
-                    ? error.response.data.message
-                    : error.message
-                ))
-            })
-        ).subscribe((action) => this.store.dispatch(action));
+            .put(url, reqData, { headers })
+            .pipe(
+                map((data: any) => {
+                    console.log("added item", data);
+                    return addItemToCartSuccess({ payload: data })
+                }),
+                catchError((error: any) => {
+                    return of(addItemToCartFailure(error.response && error.response.data.message
+                        ? error.response.data.message
+                        : error.message
+                    ))
+                })
+            ).subscribe((action) => this.store.dispatch(action));
     }
 
     getCart() {
         const url = `${this.API_BASE_URL}/cart/`;
         const headers = new HttpHeaders({
-            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             'Content-Type': 'application/json',
         });
 
-        return this.http.get(url, {headers}).pipe(
+        return this.http.get(url, { headers }).pipe(
             map((data: any) => {
                 console.log("cart Items", data);
-                return getCartSuccess({payload:data});
+                return getCartSuccess({ payload: data });
             }),
-            catchError((error:any) => {
-                return of(getCartFailure(error.response && error.response.data.message 
+            catchError((error: any) => {
+                return of(getCartFailure(error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message
                 ))
@@ -71,41 +71,41 @@ export class CartService{
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         });
 
-        return this.http.delete(url, {headers}).pipe(
+        return this.http.delete(url, { headers }).pipe(
             map((data: any) => {
                 console.log("removed Items", data);
-                return removeCartItemSuccess({cartItemId});
+                return removeCartItemSuccess({ cartItemId });
             }),
-            catchError((error:any) => {
-                return of(getCartFailure(error.response && error.response.data.message 
+            catchError((error: any) => {
+                return of(getCartFailure(error.response && error.response.data.message
                     ? error.response.data.message
                     : error.message
                 ))
             })
         ).subscribe((action) => this.store.dispatch(action));
     }
-    
+
     updateCartItem(reqData: any) {
         const url = `${this.API_BASE_URL}/cart_items/${reqData.cartItemId}`;
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         })
-        
+
         return this.http
-        .put(url, reqData.data, { headers })
-        .pipe(
-            map((data: any) => {
-                console.log("updated item data", data);
-                return updateCartItemSuccess({payload:data})
-            }),
-            catchError((error:any) => {
-                return of(updateCartItemFailure(error.response&& error.response.data.message 
-                    ? error.response.data.message
-                    : error.message
-                ))
-            })
-        ).subscribe((action) => this.store.dispatch(action));
+            .put(url, reqData.data, { headers })
+            .pipe(
+                map((data: any) => {
+                    console.log("updated item data", data);
+                    return updateCartItemSuccess({ payload: data })
+                }),
+                catchError((error: any) => {
+                    return of(updateCartItemFailure(error.response && error.response.data.message
+                        ? error.response.data.message
+                        : error.message
+                    ))
+                })
+            ).subscribe((action) => this.store.dispatch(action));
     }
 
 }

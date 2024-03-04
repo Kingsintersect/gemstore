@@ -21,6 +21,7 @@ import { ProductReviewCardComponent } from './components/product-details/product
 import { AddressFormComponent } from './components/checkout/address-form/address-form.component';
 import { OrderCardComponent } from './components/order/order-card/order-card.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 
 
@@ -43,6 +44,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
         AddressFormComponent,
         OrderCardComponent,
         PageNotFoundComponent,
+        UserprofileComponent,
     ],
     exports: [
         FetureComponent,

@@ -10,20 +10,24 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
 import { FetureComponent } from './components/feture.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 const routes: Routes = [
-    { path:"", component:FetureComponent, children: [
-        { path:"", component:HomeComponent },
-        { path:"cart", component:CartComponent },
-        { path:"product-details/:id", component:ProductDetailsComponent },
-        { path:"checkout", component:CheckoutComponent },
-        { path:"checkout/payment/:id", component:PaymentComponent },
-        { path:"payment-success", component:PaymentSuccessComponent },
-        { path:"account/orders", component:OrderComponent },
-        { path:"order/:id", component:OrderDetailsComponent },
+  {
+    path: "", component: FetureComponent, children: [
+      { path: "", component: HomeComponent },
+      { path: "user/profile", component: UserprofileComponent },
+      { path: "cart", component: CartComponent },
+      { path: "product-details/:id", component: ProductDetailsComponent },
+      { path: "checkout", component: CheckoutComponent },
+      { path: "checkout/payment/:id", component: PaymentComponent },
+      { path: "payment-success", component: PaymentSuccessComponent },
+      { path: "account/orders", component: OrderComponent },
+      { path: "order/:id", component: OrderDetailsComponent },
 
-        { path: ':levelOne/:levelTwo/:levelThree', component:ProductsComponent }        
-    ] },
+      { path: ':levelOne/:levelTwo/:levelThree', component: ProductsComponent }
+    ]
+  },
 
 ];
 

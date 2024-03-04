@@ -1,21 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthService } from 'src/app/State/Auth/auth.service';
+import { User } from 'src/app/Models/User.Model';
+import { register } from 'src/app/State/Auth/Auth.Actions';
+import { getAuthLoadingSelector, getAuthStatusSelector, getAuthTokenSelector } from 'src/app/State/Auth/Auth.Selectors';
 
 @Component({
   selector: 'app-singup',
   templateUrl: './singup.component.html',
   styleUrls: ['./singup.component.scss'],
 })
-export class SingupComponent {
+export class SingupComponent implements OnInit {
   @Input() changeTamplate: any;
+  loading: boolean = false
 
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private authService: AuthService
-  ) {}
+    private router: Router
+  ) { }
+  ngOnInit(): void {
+    this.store.select(getAuthLoadingSelector).subscribe((loadingState) => { this.loading = loadingState });
+  }
+  ShowSnackBarAlert(arg0: string, arg1: string) {
+    throw new Error('Method not implemented.');
+  }
 
   registerForm: FormGroup = this.fb.group({
     firstName: ['', [Validators.required]],
@@ -27,8 +37,11 @@ export class SingupComponent {
 
   handleSignup(): void {
     if (this.registerForm.valid) {
-      // console.log(this.registerForm.value);
-      this.authService.register(this.registerForm.value);
+      const _obj: User = this.registerForm.value
+      this.store.dispatch(register({ inputdata: _obj }));
+      this.store.select(getAuthStatusSelector).subscribe((status) => {
+        if (status) this.router.navigate(['/']);
+      });
     }
   }
 }
