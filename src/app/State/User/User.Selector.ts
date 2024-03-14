@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { AppState, UserProfile } from "src/app/Models/AppState";
+import { UserModel } from "src/app/Models/User.Model";
 
-export const getUserProfile = createFeatureSelector<AppState>('user');
+export const getUserProfile = createFeatureSelector<UserModel>('user');
 
 export const getuserprofiledata = createSelector(getUserProfile, (state) => {
-    return state.userProfile
+    return state.profile
 });

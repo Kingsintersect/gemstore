@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store, select } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { AppState } from './Models/AppState';
-import { UserService } from './State/User/user.service';
 import { CartService } from './State/Cart/cart.service';
 import { initFlowbite } from 'flowbite';
 

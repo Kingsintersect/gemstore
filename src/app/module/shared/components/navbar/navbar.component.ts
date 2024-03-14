@@ -2,10 +2,9 @@ import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState, UserProfile } from 'src/app/Models/AppState';
-import { getUserProfile } from 'src/app/State/User/User.Actions';
+import { User, UserModel } from 'src/app/Models/User.Model';
+import { getUserProfile, logOut } from 'src/app/State/User/User.Actions';
 import { getuserprofiledata } from 'src/app/State/User/User.Selector';
-import { UserService } from 'src/app/State/User/user.service';
 
 @Component({
     selector: 'app-navbar',
@@ -19,10 +18,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     isMobilemenu = false;
     navbarOpen = false;
 
-    userProfile!: UserProfile;
+    userProfile!: User | null;
     subscriptions: Subscription = new Subscription;
 
-    constructor(private router: Router, private userService: UserService, private store: Store<AppState>) {
+    constructor(private router: Router, private store: Store<UserModel>) {
     }
 
     ngOnInit(): void {
@@ -40,6 +39,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     handleAuthentication() {
         this.router.navigate(["/login"])
+    }
+
+    handleLogout = () => {
+        this.store.dispatch(logOut());
+        this.store.select(getuserprofiledata).subscribe((res: any) => {
+            this.userProfile = null;
+        })
     }
 
     toggleMobileMenu() {
@@ -65,10 +71,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     navigateTo(path: any) {
         this.router.navigate([path]);
-    }
-
-    handleLogout = () => {
-        this.userService.logOut();
     }
 
     @HostListener('document:click', [`$event`])

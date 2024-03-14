@@ -1,5 +1,3 @@
-import { User } from "./User.Model";
-
 export interface AuthStateModel {
     token: string,
     errormessage: null,
